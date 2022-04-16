@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A86038C3280ACEB40058D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038C2280ACEB40058D49E /* AppDelegate.swift */; };
+		A86038C5280ACEB40058D49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038C4280ACEB40058D49E /* SceneDelegate.swift */; };
+		A86038C7280ACEB40058D49E /* SpringAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038C6280ACEB40058D49E /* SpringAnimationViewController.swift */; };
+		A86038CA280ACEB40058D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86038C8280ACEB40058D49E /* Main.storyboard */; };
+		A86038CC280ACEB50058D49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86038CB280ACEB50058D49E /* Assets.xcassets */; };
+		A86038CF280ACEB50058D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86038CD280ACEB50058D49E /* LaunchScreen.storyboard */; };
+		A86038E1280AD7BB0058D49E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038E0280AD7BB0058D49E /* Animation.swift */; };
+		A86038E9280ADEAA0058D49E /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = A86038E8280ADEAA0058D49E /* SpringAnimation */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A86038BF280ACEB40058D49E /* SpringApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpringApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86038C2280ACEB40058D49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A86038C4280ACEB40058D49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A86038C6280ACEB40058D49E /* SpringAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationViewController.swift; sourceTree = "<group>"; };
+		A86038C9280ACEB40058D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A86038CB280ACEB50058D49E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A86038CE280ACEB50058D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A86038D0280ACEB50058D49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A86038E0280AD7BB0058D49E /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		A86038E7280ADEA30058D49E /* SpringAnimation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpringAnimation; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A86038BC280ACEB40058D49E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86038E9280ADEAA0058D49E /* SpringAnimation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A86038B6280ACEB40058D49E = {
+			isa = PBXGroup;
+			children = (
+				A86038C1280ACEB40058D49E /* SpringApp */,
+				A86038C0280ACEB40058D49E /* Products */,
+				A86038D8280AD1890058D49E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A86038C0280ACEB40058D49E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A86038BF280ACEB40058D49E /* SpringApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A86038C1280ACEB40058D49E /* SpringApp */ = {
+			isa = PBXGroup;
+			children = (
+				A86038DC280AD7390058D49E /* ViewControllers */,
+				A86038DF280AD78B0058D49E /* Models */,
+				A86038DE280AD75C0058D49E /* StoryBoards */,
+				A86038DD280AD7490058D49E /* Resources */,
+				A86038DB280AD71C0058D49E /* App */,
+			);
+			path = SpringApp;
+			sourceTree = "<group>";
+		};
+		A86038D8280AD1890058D49E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A86038E7280ADEA30058D49E /* SpringAnimation */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A86038DB280AD71C0058D49E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A86038C2280ACEB40058D49E /* AppDelegate.swift */,
+				A86038C4280ACEB40058D49E /* SceneDelegate.swift */,
+				A86038D0280ACEB50058D49E /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A86038DC280AD7390058D49E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A86038C6280ACEB40058D49E /* SpringAnimationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A86038DD280AD7490058D49E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A86038CB280ACEB50058D49E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A86038DE280AD75C0058D49E /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				A86038C8280ACEB40058D49E /* Main.storyboard */,
+				A86038CD280ACEB50058D49E /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		A86038DF280AD78B0058D49E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A86038E0280AD7BB0058D49E /* Animation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A86038BE280ACEB40058D49E /* SpringApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A86038D3280ACEB50058D49E /* Build configuration list for PBXNativeTarget "SpringApp" */;
+			buildPhases = (
+				A86038BB280ACEB40058D49E /* Sources */,
+				A86038BC280ACEB40058D49E /* Frameworks */,
+				A86038BD280ACEB40058D49E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpringApp;
+			packageProductDependencies = (
+				A86038E8280ADEAA0058D49E /* SpringAnimation */,
+			);
+			productName = SpringApp;
+			productReference = A86038BF280ACEB40058D49E /* SpringApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A86038B7280ACEB40058D49E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					A86038BE280ACEB40058D49E = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A86038BA280ACEB40058D49E /* Build configuration list for PBXProject "SpringApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A86038B6280ACEB40058D49E;
+			productRefGroup = A86038C0280ACEB40058D49E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A86038BE280ACEB40058D49E /* SpringApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A86038BD280ACEB40058D49E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86038CF280ACEB50058D49E /* LaunchScreen.storyboard in Resources */,
+				A86038CC280ACEB50058D49E /* Assets.xcassets in Resources */,
+				A86038CA280ACEB40058D49E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A86038BB280ACEB40058D49E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86038C7280ACEB40058D49E /* SpringAnimationViewController.swift in Sources */,
+				A86038C3280ACEB40058D49E /* AppDelegate.swift in Sources */,
+				A86038E1280AD7BB0058D49E /* Animation.swift in Sources */,
+				A86038C5280ACEB40058D49E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A86038C8280ACEB40058D49E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A86038C9280ACEB40058D49E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A86038CD280ACEB50058D49E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A86038CE280ACEB50058D49E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A86038D1280ACEB50058D49E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A86038D2280ACEB50058D49E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A86038D4280ACEB50058D49E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GBTTU32HS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpringApp/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LexDeBash.SpringApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A86038D5280ACEB50058D49E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GBTTU32HS2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpringApp/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LexDeBash.SpringApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A86038BA280ACEB40058D49E /* Build configuration list for PBXProject "SpringApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A86038D1280ACEB50058D49E /* Debug */,
+				A86038D2280ACEB50058D49E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A86038D3280ACEB50058D49E /* Build configuration list for PBXNativeTarget "SpringApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A86038D4280ACEB50058D49E /* Debug */,
+				A86038D5280ACEB50058D49E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A86038E8280ADEAA0058D49E /* SpringAnimation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SpringAnimation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A86038B7280ACEB40058D49E /* Project object */;
+}
