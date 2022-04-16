@@ -15,6 +15,11 @@
 		A86038CF280ACEB50058D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86038CD280ACEB50058D49E /* LaunchScreen.storyboard */; };
 		A86038E1280AD7BB0058D49E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038E0280AD7BB0058D49E /* Animation.swift */; };
 		A86038E9280ADEAA0058D49E /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = A86038E8280ADEAA0058D49E /* SpringAnimation */; };
+		A86038EF280AE2410058D49E /* SpringAnimationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EA280AE2410058D49E /* SpringAnimationPresenter.swift */; };
+		A86038F0280AE2410058D49E /* SpringAnimationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EB280AE2410058D49E /* SpringAnimationWorker.swift */; };
+		A86038F1280AE2410058D49E /* SpringAnimationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EC280AE2410058D49E /* SpringAnimationRouter.swift */; };
+		A86038F2280AE2410058D49E /* SpringAnimationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038ED280AE2410058D49E /* SpringAnimationModels.swift */; };
+		A86038F3280AE2410058D49E /* SpringAnimationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EE280AE2410058D49E /* SpringAnimationInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		A86038D0280ACEB50058D49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A86038E0280AD7BB0058D49E /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A86038E7280ADEA30058D49E /* SpringAnimation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpringAnimation; sourceTree = "<group>"; };
+		A86038EA280AE2410058D49E /* SpringAnimationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationPresenter.swift; sourceTree = "<group>"; };
+		A86038EB280AE2410058D49E /* SpringAnimationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationWorker.swift; sourceTree = "<group>"; };
+		A86038EC280AE2410058D49E /* SpringAnimationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationRouter.swift; sourceTree = "<group>"; };
+		A86038ED280AE2410058D49E /* SpringAnimationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationModels.swift; sourceTree = "<group>"; };
+		A86038EE280AE2410058D49E /* SpringAnimationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				A86038C6280ACEB40058D49E /* SpringAnimationViewController.swift */,
+				A86038EE280AE2410058D49E /* SpringAnimationInteractor.swift */,
+				A86038EA280AE2410058D49E /* SpringAnimationPresenter.swift */,
+				A86038EB280AE2410058D49E /* SpringAnimationWorker.swift */,
+				A86038EC280AE2410058D49E /* SpringAnimationRouter.swift */,
+				A86038ED280AE2410058D49E /* SpringAnimationModels.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,9 +212,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A86038C7280ACEB40058D49E /* SpringAnimationViewController.swift in Sources */,
+				A86038F1280AE2410058D49E /* SpringAnimationRouter.swift in Sources */,
 				A86038C3280ACEB40058D49E /* AppDelegate.swift in Sources */,
+				A86038EF280AE2410058D49E /* SpringAnimationPresenter.swift in Sources */,
+				A86038F3280AE2410058D49E /* SpringAnimationInteractor.swift in Sources */,
 				A86038E1280AD7BB0058D49E /* Animation.swift in Sources */,
+				A86038F2280AE2410058D49E /* SpringAnimationModels.swift in Sources */,
 				A86038C5280ACEB40058D49E /* SceneDelegate.swift in Sources */,
+				A86038F0280AE2410058D49E /* SpringAnimationWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

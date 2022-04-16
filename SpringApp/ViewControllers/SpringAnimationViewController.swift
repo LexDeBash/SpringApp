@@ -8,6 +8,10 @@
 import UIKit
 import SpringAnimation
 
+protocol SpringAnimationDisplayLogic: AnyObject {
+    func displaySomething(viewModel: SpringAnimation.Something.ViewModel)
+}
+
 class SpringAnimationViewController: UIViewController {
     
     @IBOutlet var delayLabel: UILabel!
@@ -18,11 +22,35 @@ class SpringAnimationViewController: UIViewController {
     @IBOutlet var forceSlider: UISlider!
     @IBOutlet var springView: SpringView!
     
+    var interactor: SpringAnimationBusinessLogic?
+    var router: (NSObjectProtocol & SpringAnimationRoutingLogic & SpringAnimationDataPassing)?
+    
     private let animations = AnimationPreset.allCases
     private let animationCurves = AnimationCurve.allCases
     
     private var animationIndex = 0
     private var curvesIndex = 0
+    
+    // MARK: Object lifecycle
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Routing
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
     
     @IBAction func forceSliderChanged() {
         
@@ -33,6 +61,26 @@ class SpringAnimationViewController: UIViewController {
     }
     
     @IBAction func delaySliderChanged() {
+        
+    }
+    
+    // MARK: Setup
+    private func setup() {
+        let viewController = self
+        let interactor = SpringAnimationInteractor()
+        let presenter = SpringAnimationPresenter()
+        let router = SpringAnimationRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+}
+
+extension SpringAnimationViewController: SpringAnimationDisplayLogic {
+    func displaySomething(viewModel: SpringAnimation.Something.ViewModel) {
         
     }
 }
