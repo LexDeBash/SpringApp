@@ -1,5 +1,5 @@
 //
-//  SpringAnimationWorker.swift
+//  SpringWorker.swift
 //  SpringApp
 //
 //  Created by Alexey Efimov on 16.04.2022.
@@ -10,7 +10,7 @@
 //  see http://clean-swift.com
 //
 
-class SpringAnimationWorker {
+class SpringWorker {
     func doSomeWork() {
         
     }

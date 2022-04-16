@@ -1,5 +1,5 @@
 //
-//  SpringAnimationRouter.swift
+//  SpringRouter.swift
 //  SpringApp
 //
 //  Created by Alexey Efimov on 16.04.2022.
@@ -12,18 +12,18 @@
 
 import UIKit
 
-@objc protocol SpringAnimationRoutingLogic {
+@objc protocol SpringRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol SpringAnimationDataPassing {
-    var dataStore: SpringAnimationDataStore? { get }
+protocol SpringDataPassing {
+    var dataStore: SpringDataStore? { get }
 }
 
-class SpringAnimationRouter: NSObject, SpringAnimationRoutingLogic, SpringAnimationDataPassing {
+class SpringRouter: NSObject, SpringRoutingLogic, SpringDataPassing {
     
-    weak var viewController: SpringAnimationViewController?
-    var dataStore: SpringAnimationDataStore?
+    weak var viewController: SpringViewController?
+    var dataStore: SpringDataStore?
     
     // MARK: Routing
     /*
@@ -44,7 +44,7 @@ class SpringAnimationRouter: NSObject, SpringAnimationRoutingLogic, SpringAnimat
     
     // MARK: Navigation
     /*
-    func navigateToSomewhere(source: SpringAnimationViewController, destination: SomewhereViewController) {
+    func navigateToSomewhere(source: SpringViewController, destination: SomewhereViewController) {
         source.show(destination, sender: nil)
     }
     */

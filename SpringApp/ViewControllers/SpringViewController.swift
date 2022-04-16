@@ -1,5 +1,5 @@
 //
-//  SpringAnimationViewController.swift
+//  SpringViewController.swift
 //  SpringApp
 //
 //  Created by Alexey Efimov on 16.04.2022.
@@ -8,11 +8,11 @@
 import UIKit
 import SpringAnimation
 
-protocol SpringAnimationDisplayLogic: AnyObject {
-    func displaySomething(viewModel: SpringAnimation.Something.ViewModel)
+protocol SpringDisplayLogic: AnyObject {
+    func displaySomething(viewModel: Spring.Animation.ViewModel)
 }
 
-class SpringAnimationViewController: UIViewController {
+class SpringViewController: UIViewController {
     
     @IBOutlet var delayLabel: UILabel!
     @IBOutlet var durationLabel: UILabel!
@@ -22,8 +22,8 @@ class SpringAnimationViewController: UIViewController {
     @IBOutlet var forceSlider: UISlider!
     @IBOutlet var springView: SpringView!
     
-    var interactor: SpringAnimationBusinessLogic?
-    var router: (NSObjectProtocol & SpringAnimationRoutingLogic & SpringAnimationDataPassing)?
+    var interactor: SpringBusinessLogic?
+    var router: (NSObjectProtocol & SpringRoutingLogic & SpringDataPassing)?
     
     private let animations = AnimationPreset.allCases
     private let animationCurves = AnimationCurve.allCases
@@ -67,9 +67,9 @@ class SpringAnimationViewController: UIViewController {
     // MARK: Setup
     private func setup() {
         let viewController = self
-        let interactor = SpringAnimationInteractor()
-        let presenter = SpringAnimationPresenter()
-        let router = SpringAnimationRouter()
+        let interactor = SpringInteractor()
+        let presenter = SpringPresenter()
+        let router = SpringRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -79,14 +79,14 @@ class SpringAnimationViewController: UIViewController {
     }
 }
 
-extension SpringAnimationViewController: SpringAnimationDisplayLogic {
-    func displaySomething(viewModel: SpringAnimation.Something.ViewModel) {
+extension SpringViewController: SpringDisplayLogic {
+    func displaySomething(viewModel: Spring.Animation.ViewModel) {
         
     }
 }
 
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate
-extension SpringAnimationViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension SpringViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         2
     }

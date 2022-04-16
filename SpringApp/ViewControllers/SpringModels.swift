@@ -1,5 +1,5 @@
 //
-//  SpringAnimationModels.swift
+//  SpringModels.swift
 //  SpringApp
 //
 //  Created by Alexey Efimov on 16.04.2022.
@@ -10,10 +10,14 @@
 //  see http://clean-swift.com
 //
 
-enum SpringAnimation {
+typealias SpringRequest = Spring.Animation.Request
+typealias SpringResponse = Spring.Animation.Request
+typealias SpringViewModel = Spring.Animation.ViewModel
+
+enum Spring {
  
     // MARK: Use cases
-    enum Something {
+    enum Animation {
         struct Request {
             
         }
