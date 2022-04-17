@@ -9,7 +9,7 @@ import UIKit
 import SpringAnimation
 
 protocol SpringDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Spring.Animation.ViewModel)
+    func displayAnimation(viewModel: SpringViewModel)
 }
 
 class SpringViewController: UIViewController {
@@ -40,6 +40,18 @@ class SpringViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    // MARK: - View lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func tapAction() {
+        let request = SpringRequest()
+        interactor?.didTapView(request: request)
     }
     
     // MARK: Routing
@@ -80,8 +92,20 @@ class SpringViewController: UIViewController {
 }
 
 extension SpringViewController: SpringDisplayLogic {
-    func displaySomething(viewModel: Spring.Animation.ViewModel) {
-        
+    func displayAnimation(viewModel: SpringViewModel) {
+        springView.animation = viewModel.animation
+        springView.curve = viewModel.curve
+        springView.force = viewModel.force
+        springView.duration = viewModel.duration
+        springView.delay = viewModel.delay
+        springView.damping = viewModel.damping
+        springView.velocity = viewModel.velocity
+        springView.scaleX = viewModel.scale
+        springView.scaleY = viewModel.scale
+        springView.x = viewModel.x
+        springView.y = viewModel.y
+        springView.rotate = viewModel.rotate
+        springView.animate()
     }
 }
 

@@ -11,15 +11,27 @@
 //
 
 protocol SpringPresentationLogic {
-    func presentSomething(response: Spring.Animation.Response)
+    func presentAnimation(response: SpringResponse)
 }
 
 class SpringPresenter: SpringPresentationLogic {
     
     weak var viewController: SpringDisplayLogic?
     
-    func presentSomething(response: Spring.Animation.Response) {
-        let viewModel = Spring.Animation.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentAnimation(response: SpringResponse) {
+        let viewModel = SpringViewModel(
+            animation: response.animation.name,
+            curve: response.animation.curve,
+            force: response.animation.force,
+            duration: response.animation.duration,
+            delay: response.animation.delay,
+            damping: response.animation.damping,
+            velocity: response.animation.velocity,
+            scale: response.animation.scale,
+            x: response.animation.x,
+            y: response.animation.y,
+            rotate: response.animation.rotate
+        )
+        viewController?.displayAnimation(viewModel: viewModel)
     }
 }

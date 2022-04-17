@@ -11,23 +11,24 @@
 //
 
 protocol SpringBusinessLogic {
-    func doSomething(request: Spring.Animation.Request)
+    func didTapView(request: SpringRequest)
 }
 
 protocol SpringDataStore {
-    
+    var animation: Animation { get }
 }
 
 class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     
     var presenter: SpringPresentationLogic?
     var worker: SpringWorker?
+    var animation = Animation()
     
-    func doSomething(request: Spring.Animation.Request) {
+    func didTapView(request: SpringRequest) {
         worker = SpringWorker()
         worker?.doSomeWork()
         
-        let response = Spring.Animation.Response()
-        presenter?.presentSomething(response: response)
+        let response = SpringResponse(animation: animation)
+        presenter?.presentAnimation(response: response)
     }
 }

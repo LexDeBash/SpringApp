@@ -112,7 +112,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="shake"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="animateFrom" value="YES"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="delay">

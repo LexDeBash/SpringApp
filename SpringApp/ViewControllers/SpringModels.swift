@@ -10,24 +10,34 @@
 //  see http://clean-swift.com
 //
 
-typealias SpringRequest = Spring.Animation.Request
-typealias SpringResponse = Spring.Animation.Request
-typealias SpringViewModel = Spring.Animation.ViewModel
+typealias SpringRequest = Spring.Animate.Request
+typealias SpringResponse = Spring.Animate.Response
+typealias SpringViewModel = Spring.Animate.ViewModel
 
 enum Spring {
  
     // MARK: Use cases
-    enum Animation {
+    enum Animate {
         struct Request {
             
         }
         
         struct Response {
-            
+            let animation: Animation
         }
         
         struct ViewModel {
-            
+            let animation: String
+            let curve: String
+            let force: Double
+            let duration: Double
+            let delay: Double
+            let damping: Double
+            let velocity: Double
+            let scale: Double
+            let x: Double
+            let y: Double
+            let rotate: Double
         }
     }
 }
