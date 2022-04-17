@@ -16,6 +16,7 @@ protocol SpringBusinessLogic {
     func didTapView(request: SpringRequest)
     func didSelectAnimationRow(request: SpringRequest)
     func didSelectCurveRow(request: SpringRequest)
+    func sliderDidChanged(request: SpringRequest)
 }
 
 protocol SpringDataStore {
@@ -50,6 +51,13 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     
     func didSelectCurveRow(request: SpringRequest) {
         animation.curve = animationCurves[request.rowIndex].rawValue
+        presenter?.presentAnimation(response: response)
+    }
+    
+    func sliderDidChanged(request: SpringRequest) {
+        animation.force = Double(request.forceSliderValue)
+        animation.duration = Double(request.durationSliderValue)
+        animation.delay = Double(request.delaySliderValue)
         presenter?.presentAnimation(response: response)
     }
 }

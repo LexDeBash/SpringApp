@@ -30,7 +30,10 @@ class SpringPresenter: SpringPresentationLogic {
             scale: response.animation.scale,
             x: response.animation.x,
             y: response.animation.y,
-            rotate: response.animation.rotate
+            rotate: response.animation.rotate,
+            forceText: String(format: "Force: %.1f", response.animation.force),
+            durationText: String(format: "Duration: %.1f", response.animation.duration),
+            delayText: String(format: "Delay: %.1f", response.animation.delay)
         )
         viewController?.displayAnimation(viewModel: viewModel)
     }

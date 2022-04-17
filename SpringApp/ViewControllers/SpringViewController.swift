@@ -25,6 +25,8 @@ class SpringViewController: UIViewController {
     var interactor: SpringBusinessLogic?
     var router: (NSObjectProtocol & SpringRoutingLogic & SpringDataPassing)?
     
+    private var request = SpringRequest()
+    
     private let animations = AnimationPreset.allCases
     private let animationCurves = AnimationCurve.allCases
     
@@ -50,7 +52,6 @@ class SpringViewController: UIViewController {
     }
     
     @objc private func tapAction() {
-        let request = SpringRequest()
         interactor?.didTapView(request: request)
     }
     
@@ -65,15 +66,18 @@ class SpringViewController: UIViewController {
     }
     
     @IBAction func forceSliderAction() {
-        
+        request.forceSliderValue = forceSlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
     @IBAction func durationSliderAction() {
-        
+        request.durationSliderValue = durationSlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
     @IBAction func delaySliderAction() {
-        
+        request.delaySliderValue = delaySlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
     // MARK: Setup
@@ -93,6 +97,10 @@ class SpringViewController: UIViewController {
 
 extension SpringViewController: SpringDisplayLogic {
     func displayAnimation(viewModel: SpringViewModel) {
+        forceLabel.text = viewModel.forceText
+        durationLabel.text = viewModel.durationText
+        delayLabel.text = viewModel.delayText
+        
         springView.animation = viewModel.animation
         springView.curve = viewModel.curve
         springView.force = viewModel.force
@@ -124,7 +132,6 @@ extension SpringViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var request = SpringRequest()
         switch component {
         case 0:
             request.rowIndex = row

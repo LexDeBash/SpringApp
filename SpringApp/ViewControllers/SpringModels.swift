@@ -20,6 +20,9 @@ enum Spring {
     enum Animate {
         struct Request {
             var rowIndex = 0
+            var forceSliderValue: Float = 1
+            var durationSliderValue: Float = 1
+            var delaySliderValue: Float = 0
         }
         
         struct Response {
@@ -38,6 +41,10 @@ enum Spring {
             let x: Double
             let y: Double
             let rotate: Double
+            
+            let forceText: String
+            let durationText: String
+            let delayText: String
         }
     }
 }
