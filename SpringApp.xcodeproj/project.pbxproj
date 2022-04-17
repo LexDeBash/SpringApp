@@ -72,7 +72,7 @@
 		A86038C1280ACEB40058D49E /* SpringApp */ = {
 			isa = PBXGroup;
 			children = (
-				A86038DC280AD7390058D49E /* ViewControllers */,
+				A86038DC280AD7390058D49E /* Spring */,
 				A86038DF280AD78B0058D49E /* Models */,
 				A86038DE280AD75C0058D49E /* StoryBoards */,
 				A86038DD280AD7490058D49E /* Resources */,
@@ -99,7 +99,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		A86038DC280AD7390058D49E /* ViewControllers */ = {
+		A86038DC280AD7390058D49E /* Spring */ = {
 			isa = PBXGroup;
 			children = (
 				A86038C6280ACEB40058D49E /* SpringViewController.swift */,
@@ -109,7 +109,7 @@
 				A86038EC280AE2410058D49E /* SpringRouter.swift */,
 				A86038ED280AE2410058D49E /* SpringModels.swift */,
 			);
-			path = ViewControllers;
+			path = Spring;
 			sourceTree = "<group>";
 		};
 		A86038DD280AD7490058D49E /* Resources */ = {
