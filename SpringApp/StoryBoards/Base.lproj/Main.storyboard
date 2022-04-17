@@ -9,6 +9,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -143,6 +144,9 @@
                                                 <state key="normal" title="Options">
                                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="MIr-HP-nnC" kind="presentation" identifier="Options" modalPresentationStyle="overCurrentContext" id="r9a-ge-iJk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -184,6 +188,216 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="138.61607142857142"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="fMX-Sl-KSJ">
+            <objects>
+                <viewController id="MIr-HP-nnC" customClass="OptionsViewController" customModule="SpringApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KuC-SD-gUa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="La6-pb-hyX" customClass="SpringView" customModule="SpringAnimation">
+                                <rect key="frame" x="0.0" y="584" width="414" height="378"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999998807907104" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-3k-MDH">
+                                        <rect key="frame" x="13" y="35" width="90" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9cE-rb-6ls"/>
+                                            <constraint firstAttribute="width" constant="86" id="rhC-Rc-76a"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.15340511500000001" green="0.61420810219999999" blue="0.92509436609999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="dampingSliderChanged:" destination="MIr-HP-nnC" eventType="valueChanged" id="zLo-o4-eL2"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damping: 0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehj-aq-XfQ">
+                                        <rect key="frame" x="20" y="72" width="76.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999998807907104" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yIa-RT-Yei">
+                                        <rect key="frame" x="162" y="35" width="90" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="86" id="V7J-jL-6bo"/>
+                                            <constraint firstAttribute="height" constant="30" id="ZgI-hw-gbo"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.15340511500000001" green="0.61420810219999999" blue="0.92509436609999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="velocitySliderChanged:" destination="MIr-HP-nnC" eventType="valueChanged" id="tOE-6p-Zi6"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity: 0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvg-aG-4Iy">
+                                        <rect key="frame" x="173.5" y="71.5" width="68.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ofe-Wn-VSk">
+                                        <rect key="frame" x="311" y="35" width="90" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="86" id="9o7-sR-mNG"/>
+                                            <constraint firstAttribute="height" constant="30" id="HrN-Ux-uZf"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.15340511500000001" green="0.61420810219999999" blue="0.92509436609999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="rotateSliderChanged:" destination="MIr-HP-nnC" eventType="valueChanged" id="sCn-Xi-Lwj"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Keu-WG-7y0">
+                                        <rect key="frame" x="331.5" y="71.5" width="50.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Jlr-hz-AbZ">
+                                        <rect key="frame" x="13" y="116" width="90" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ogd-Tj-VoG"/>
+                                            <constraint firstAttribute="width" constant="86" id="S9y-4p-B6j"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.15340511500000001" green="0.61420810219999999" blue="0.92509436609999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="xSliderChanged:" destination="MIr-HP-nnC" eventType="valueChanged" id="9qu-g8-wgU"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGU-8N-KCk">
+                                        <rect key="frame" x="48" y="152.5" width="20.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="HIF-ve-Ud0">
+                                        <rect key="frame" x="162" y="116" width="90" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="WBR-UI-slU"/>
+                                            <constraint firstAttribute="width" constant="86" id="izp-3Q-w0K"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.15340511500000001" green="0.61420810219999999" blue="0.92509436609999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="ySliderChanged:" destination="MIr-HP-nnC" eventType="valueChanged" id="JnE-lz-jln"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8p-L7-gW7">
+                                        <rect key="frame" x="197" y="152.5" width="20.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="VN5-CK-ef2">
+                                        <rect key="frame" x="311" y="116" width="90" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="86" id="K13-Eg-ZkR"/>
+                                            <constraint firstAttribute="height" constant="30" id="qJd-WW-Ni9"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.15340511500000001" green="0.61420810219999999" blue="0.92509436609999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="scaleSliderChanged:" destination="MIr-HP-nnC" eventType="valueChanged" id="UTP-4p-8xY"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scale: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atG-Hi-JSC">
+                                        <rect key="frame" x="334.5" y="152" width="43.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-I6-A18" customClass="DesignableButton" customModule="Spring">
+                                        <rect key="frame" x="157" y="198" width="100" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="KPG-QB-0iK"/>
+                                            <constraint firstAttribute="height" constant="36" id="jeG-CE-FGN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="MIr-HP-nnC" eventType="touchUpInside" id="8zJ-a6-kTg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.25882352939999997" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4yw-3k-MDH" firstAttribute="top" secondItem="La6-pb-hyX" secondAttribute="top" constant="35" id="2SP-tG-E49"/>
+                                    <constraint firstItem="Keu-WG-7y0" firstAttribute="top" secondItem="Ofe-Wn-VSk" secondAttribute="bottom" constant="6.5" id="2c9-bZ-bec"/>
+                                    <constraint firstItem="Hvg-aG-4Iy" firstAttribute="centerX" secondItem="yIa-RT-Yei" secondAttribute="centerX" constant="0.5" id="2kk-wD-4qy"/>
+                                    <constraint firstItem="HIF-ve-Ud0" firstAttribute="top" secondItem="yIa-RT-Yei" secondAttribute="bottom" constant="51" id="6SQ-as-EZy"/>
+                                    <constraint firstAttribute="centerX" secondItem="HIF-ve-Ud0" secondAttribute="centerX" id="H4k-ma-b6P"/>
+                                    <constraint firstItem="VN5-CK-ef2" firstAttribute="top" secondItem="Ofe-Wn-VSk" secondAttribute="bottom" constant="51" id="Icp-eS-K1I"/>
+                                    <constraint firstItem="HIF-ve-Ud0" firstAttribute="centerX" secondItem="x8p-L7-gW7" secondAttribute="centerX" id="JIC-8T-KHd"/>
+                                    <constraint firstAttribute="trailing" secondItem="VN5-CK-ef2" secondAttribute="trailing" constant="15" id="KQb-eZ-gs9"/>
+                                    <constraint firstItem="yIa-RT-Yei" firstAttribute="top" secondItem="La6-pb-hyX" secondAttribute="top" constant="35" id="KWl-OF-hsB"/>
+                                    <constraint firstAttribute="centerX" secondItem="14U-I6-A18" secondAttribute="centerX" id="N30-tq-7Hn"/>
+                                    <constraint firstAttribute="centerX" secondItem="yIa-RT-Yei" secondAttribute="centerX" id="N6Q-r6-rmT"/>
+                                    <constraint firstItem="oGU-8N-KCk" firstAttribute="top" secondItem="Jlr-hz-AbZ" secondAttribute="bottom" constant="6.5" id="O5O-Hj-Hga"/>
+                                    <constraint firstItem="atG-Hi-JSC" firstAttribute="top" secondItem="VN5-CK-ef2" secondAttribute="bottom" constant="6" id="SKs-HT-5YO"/>
+                                    <constraint firstItem="Jlr-hz-AbZ" firstAttribute="centerX" secondItem="oGU-8N-KCk" secondAttribute="centerX" id="Saq-Vi-iPb"/>
+                                    <constraint firstItem="atG-Hi-JSC" firstAttribute="centerX" secondItem="VN5-CK-ef2" secondAttribute="centerX" id="U7r-7U-MRT"/>
+                                    <constraint firstItem="14U-I6-A18" firstAttribute="top" secondItem="x8p-L7-gW7" secondAttribute="bottom" constant="29" id="V6O-6l-Q1b"/>
+                                    <constraint firstItem="Ofe-Wn-VSk" firstAttribute="top" secondItem="La6-pb-hyX" secondAttribute="top" constant="35" id="daR-Us-5Qx"/>
+                                    <constraint firstItem="Jlr-hz-AbZ" firstAttribute="top" secondItem="4yw-3k-MDH" secondAttribute="bottom" constant="51" id="egF-jA-4dT"/>
+                                    <constraint firstItem="Hvg-aG-4Iy" firstAttribute="top" secondItem="yIa-RT-Yei" secondAttribute="bottom" constant="6.5" id="ett-r7-TjQ"/>
+                                    <constraint firstItem="ehj-aq-XfQ" firstAttribute="top" secondItem="4yw-3k-MDH" secondAttribute="bottom" constant="7" id="iq9-Ce-8Zg"/>
+                                    <constraint firstItem="ehj-aq-XfQ" firstAttribute="centerX" secondItem="4yw-3k-MDH" secondAttribute="centerX" id="m1I-vc-d8D"/>
+                                    <constraint firstItem="4yw-3k-MDH" firstAttribute="leading" secondItem="La6-pb-hyX" secondAttribute="leading" constant="15" id="rit-1r-cBF"/>
+                                    <constraint firstItem="Keu-WG-7y0" firstAttribute="centerX" secondItem="Ofe-Wn-VSk" secondAttribute="centerX" constant="0.5" id="ulV-Ji-93f"/>
+                                    <constraint firstItem="x8p-L7-gW7" firstAttribute="top" secondItem="HIF-ve-Ud0" secondAttribute="bottom" constant="6.5" id="w9R-IT-7Ls"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ofe-Wn-VSk" secondAttribute="trailing" constant="15" id="yDm-ab-2by"/>
+                                    <constraint firstItem="Jlr-hz-AbZ" firstAttribute="leading" secondItem="La6-pb-hyX" secondAttribute="leading" constant="15" id="zZQ-GV-Pgu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeUp"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateFrom" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TNO-am-bG5"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="La6-pb-hyX" firstAttribute="height" secondItem="KuC-SD-gUa" secondAttribute="height" multiplier="0.421786" id="MCq-qB-mTg"/>
+                            <constraint firstItem="La6-pb-hyX" firstAttribute="leading" secondItem="TNO-am-bG5" secondAttribute="leading" id="TT2-EA-YYq"/>
+                            <constraint firstItem="TNO-am-bG5" firstAttribute="trailing" secondItem="La6-pb-hyX" secondAttribute="trailing" id="b53-g3-MB3"/>
+                            <constraint firstItem="TNO-am-bG5" firstAttribute="bottom" secondItem="La6-pb-hyX" secondAttribute="bottom" constant="-100" id="lXQ-iS-sBt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dampingLabel" destination="ehj-aq-XfQ" id="G6k-pI-xDb"/>
+                        <outlet property="dampingSlider" destination="4yw-3k-MDH" id="l7C-f8-fNj"/>
+                        <outlet property="modalView" destination="La6-pb-hyX" id="k2a-WS-3KS"/>
+                        <outlet property="rotateLabel" destination="Keu-WG-7y0" id="ln0-Gn-bfc"/>
+                        <outlet property="rotateSlider" destination="Ofe-Wn-VSk" id="hre-TG-Eqj"/>
+                        <outlet property="scaleLabel" destination="atG-Hi-JSC" id="cfM-kY-e6s"/>
+                        <outlet property="scaleSlider" destination="VN5-CK-ef2" id="2Sx-ac-kfI"/>
+                        <outlet property="velocityLabel" destination="Hvg-aG-4Iy" id="EbF-op-57a"/>
+                        <outlet property="velocitySlider" destination="yIa-RT-Yei" id="Kze-B1-cpx"/>
+                        <outlet property="xLabel" destination="oGU-8N-KCk" id="vTa-zL-xJ6"/>
+                        <outlet property="xSlider" destination="Jlr-hz-AbZ" id="ipP-ht-36a"/>
+                        <outlet property="yLabel" destination="x8p-L7-gW7" id="EeE-en-cWO"/>
+                        <outlet property="ySlider" destination="HIF-ve-Ud0" id="JaF-GB-q9p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMw-uz-pph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="820"/>
         </scene>
     </scenes>
     <resources>

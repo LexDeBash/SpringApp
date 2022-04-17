@@ -10,20 +10,47 @@
 //  see http://clean-swift.com
 //
 
+typealias OptionsRequest = Options.Animate.Request
+typealias OptionsResponse = Options.Animate.Response
+typealias OptionsViewModel = Options.Animate.ViewModel
+
 enum Options {
  
     // MARK: Use cases
-    enum Something {
+    enum Animate {
         struct Request {
-            
+            var rowIndex = 0
+            var forceSliderValue: Float = 1
+            var durationSliderValue: Float = 1
+            var delaySliderValue: Float = 0
+            var damping: Float = 0.7
+            var velocity: Float = 0.7
+            var rotate: Float = 0
+            var x: Float = 0
+            var y: Float = 0
+            var scale: Float = 0
         }
         
         struct Response {
-            
+            let animation: Animation
         }
         
         struct ViewModel {
+            let animation: String
+            let curve: String
+            let force: Double
+            let duration: Double
+            let delay: Double
+            let damping: Double
+            let velocity: Double
+            let scale: Double
+            let x: Double
+            let y: Double
+            let rotate: Double
             
+            let forceText: String
+            let durationText: String
+            let delayText: String
         }
     }
 }

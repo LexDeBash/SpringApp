@@ -11,23 +11,24 @@
 //
 
 protocol OptionsBusinessLogic {
-    func doSomething(request: Options.Something.Request)
+    func doSomething(request: OptionsRequest)
 }
 
 protocol OptionsDataStore {
-    
+    var animation: Animation? { get set }
 }
 
 class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     
     var presenter: OptionsPresentationLogic?
     var worker: OptionsWorker?
+    var animation: Animation?
     
-    func doSomething(request: Options.Something.Request) {
+    func doSomething(request: OptionsRequest) {
         worker = OptionsWorker()
         worker?.doSomeWork()
         
-        let response = Options.Something.Response()
-        presenter?.presentSomething(response: response)
+//        let response = OptionsResponse()
+//        presenter?.presentSomething(response: response)
     }
 }

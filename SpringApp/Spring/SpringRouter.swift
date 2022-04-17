@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol SpringRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToOptions(segue: UIStoryboardSegue?)
 }
 
 protocol SpringDataPassing {
@@ -22,37 +22,34 @@ protocol SpringDataPassing {
 
 class SpringRouter: NSObject, SpringRoutingLogic, SpringDataPassing {
     
-    weak var viewController: SpringViewController?
+    weak var springVC: SpringViewController?
     var dataStore: SpringDataStore?
     
     // MARK: Routing
-    /*
-    func routeToSomewhere(segue: UIStoryboardSegue?) {
+    func routeToOptions(segue: UIStoryboardSegue?) {
         if let segue = segue {
-            let destinationVC = segue.destination as! SomewhereViewController
+            let destinationVC = segue.destination as! OptionsViewController
             var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+            passDataToOptions(source: dataStore!, destination: &destinationDS)
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-            navigateToSomewhere(source: viewController!, destination: destinationVC)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
+            let optionsVC = OptionsViewController()
+            var optionsDS = optionsVC.router!.dataStore!
+            passDataToOptions(source: dataStore!, destination: &optionsDS)
+            navigateToOptions(source: springVC!, destination: optionsVC)
         }
     }
-    */
     
     // MARK: Navigation
-    /*
-    func navigateToSomewhere(source: SpringViewController, destination: SomewhereViewController) {
-        source.show(destination, sender: nil)
+    func navigateToOptions(source: SpringViewController, destination: OptionsViewController) {
+        guard let sheetView = destination.sheetPresentationController else { return }
+        sheetView.detents = [.medium()]
+        source.present(destination, animated: true)
     }
-    */
     
     // MARK: Passing data
-    /*
-    func passDataToSomewhere(source: SpringAnimationDataStore, destination: inout SomewhereDataStore) {
-        destination.name = source.name
+    func passDataToOptions(source: SpringDataStore, destination: inout OptionsDataStore) {
+        destination.animation = source.animation
     }
-    */
 }

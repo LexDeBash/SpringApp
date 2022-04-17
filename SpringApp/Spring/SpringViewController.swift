@@ -90,7 +90,7 @@ class SpringViewController: UIViewController {
         viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
-        router.viewController = viewController
+        router.springVC = viewController
         router.dataStore = interactor
     }
 }

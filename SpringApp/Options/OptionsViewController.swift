@@ -11,12 +11,39 @@
 //
 
 import UIKit
+import SpringAnimation
 
 protocol OptionsDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Options.Something.ViewModel)
+    func displayOptions(viewModel: OptionsViewModel)
+}
+
+protocol OptionsViewControllerDelegate: AnyObject {
+    func dampingSliderChanged(_ sender: AnyObject)
+    func velocitySliderChanged(_ sender: AnyObject)
+    func scaleSliderChanged(_ sender: AnyObject)
+    func xSliderChanged(_ sender: AnyObject)
+    func ySliderChanged(_ sender: AnyObject)
+    func rotateSliderChanged(_ sender: AnyObject)
+    func resetButtonPressed(_ sender: AnyObject)
 }
 
 class OptionsViewController: UIViewController {
+    
+    @IBOutlet weak var modalView: SpringView!
+    
+    @IBOutlet weak var dampingLabel: UILabel!
+    @IBOutlet weak var velocityLabel: UILabel!
+    @IBOutlet weak var scaleLabel: UILabel!
+    @IBOutlet weak var xLabel: UILabel!
+    @IBOutlet weak var yLabel: UILabel!
+    @IBOutlet weak var rotateLabel: UILabel!
+    
+    @IBOutlet weak var dampingSlider: UISlider!
+    @IBOutlet weak var velocitySlider: UISlider!
+    @IBOutlet weak var scaleSlider: UISlider!
+    @IBOutlet weak var xSlider: UISlider!
+    @IBOutlet weak var ySlider: UISlider!
+    @IBOutlet weak var rotateSlider: UISlider!
         
     var interactor: OptionsBusinessLogic?
     var router: (NSObjectProtocol & OptionsRoutingLogic & OptionsDataPassing)?
@@ -32,25 +59,42 @@ class OptionsViewController: UIViewController {
         setup()
     }
     
-    // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @IBAction func dampingSliderChanged(_ sender: AnyObject) {
+        
     }
     
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
+    @IBAction func velocitySliderChanged(_ sender: AnyObject) {
         
-    private func doSomething() {
-        let request = Options.Something.Request()
-        interactor?.doSomething(request: request)
+    }
+    
+    @IBAction func scaleSliderChanged(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func xSliderChanged(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func ySliderChanged(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func rotateSliderChanged(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func resetButtonPressed(_ sender: AnyObject) {
+
+    }
+    
+    @objc private func tapAction() {
+        dismiss(animated: true)
     }
     
     // MARK: Setup
@@ -69,7 +113,7 @@ class OptionsViewController: UIViewController {
 }
 
 extension OptionsViewController: OptionsDisplayLogic {
-    func displaySomething(viewModel: Options.Something.ViewModel) {
+    func displayOptions(viewModel: Options.Animate.ViewModel) {
         
     }
 }

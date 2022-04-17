@@ -11,15 +11,15 @@
 //
 
 protocol OptionsPresentationLogic {
-    func presentSomething(response: Options.Something.Response)
+    func presentSomething(response: OptionsResponse)
 }
 
 class OptionsPresenter: OptionsPresentationLogic {
     
     weak var viewController: OptionsDisplayLogic?
     
-    func presentSomething(response: Options.Something.Response) {
-        let viewModel = Options.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentSomething(response: OptionsResponse) {
+//        let viewModel = Options.Animate.ViewModel()
+//        viewController?.displaySomething(viewModel: viewModel)
     }
 }
