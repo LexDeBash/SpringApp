@@ -31,13 +31,13 @@ class SpringRouter: NSObject, SpringRoutingLogic, SpringDataPassing {
             let destinationVC = segue.destination as! OptionsViewController
             var destinationDS = destinationVC.router!.dataStore!
             passDataToOptions(source: dataStore!, destination: &destinationDS)
+            destinationVC.delegate = springVC
         } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
-            let optionsVC = OptionsViewController()
-            var optionsDS = optionsVC.router!.dataStore!
-            passDataToOptions(source: dataStore!, destination: &optionsDS)
-            navigateToOptions(source: springVC!, destination: optionsVC)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToOptions(source: dataStore!, destination: &destinationDS)
+            navigateToOptions(source: springVC!, destination: destinationVC)
         }
     }
     

@@ -51,6 +51,12 @@ enum Options {
             let forceText: String
             let durationText: String
             let delayText: String
+            let dampingText: String
+            let velocityText: String
+            let scaleText: String
+            let xText: String
+            let yText: String
+            let rotateText: String
         }
     }
 }

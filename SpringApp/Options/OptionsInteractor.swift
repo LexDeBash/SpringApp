@@ -11,24 +11,35 @@
 //
 
 protocol OptionsBusinessLogic {
-    func doSomething(request: OptionsRequest)
+    func setOptions(request: OptionsRequest)
+    func sliderDidChanged(request: OptionsRequest)
 }
 
 protocol OptionsDataStore {
-    var animation: Animation? { get set }
+    var animation: Animation { get set }
 }
 
 class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     
     var presenter: OptionsPresentationLogic?
     var worker: OptionsWorker?
-    var animation: Animation?
+    var animation = Animation()
     
-    func doSomething(request: OptionsRequest) {
-        worker = OptionsWorker()
-        worker?.doSomeWork()
-        
-//        let response = OptionsResponse()
-//        presenter?.presentSomething(response: response)
+    private var response: OptionsResponse {
+        OptionsResponse(animation: animation)
+    }
+    
+    func setOptions(request: OptionsRequest) {
+        presenter?.presentOptions(response: response)
+    }
+    
+    func sliderDidChanged(request: OptionsRequest) {
+        animation.damping = Double(request.damping)
+        animation.velocity = Double(request.velocity)
+        animation.scale = Double(request.scale)
+        animation.x = Double(request.x)
+        animation.y = Double(request.y)
+        animation.rotate = Double(request.rotate)
+        presenter?.presentOptions(response: response)
     }
 }

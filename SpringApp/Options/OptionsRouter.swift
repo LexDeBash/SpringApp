@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol OptionsRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSpring(segue: UIStoryboardSegue?)
 }
 
 protocol OptionsDataPassing {
@@ -26,21 +26,20 @@ class OptionsRouter: NSObject, OptionsRoutingLogic, OptionsDataPassing {
     var dataStore: OptionsDataStore?
     
     // MARK: Routing
-    /*
-    func routeToSomewhere(segue: UIStoryboardSegue?) {
+    func routeToSpring(segue: UIStoryboardSegue?) {
         if let segue = segue {
-            let destinationVC = segue.destination as! SomewhereViewController
+            let destinationVC = segue.destination as! SpringViewController
             var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+            passDataToSpring(source: dataStore!, destination: &destinationDS)
         } else {
+            print("route")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SpringViewController") as! SpringViewController
             var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-            navigateToSomewhere(source: viewController!, destination: destinationVC)
+            passDataToSpring(source: dataStore!, destination: &destinationDS)
+//            navigateToSomewhere(source: viewController!, destination: destinationVC)
         }
     }
-    */
     
     // MARK: Navigation
     /*
@@ -50,9 +49,8 @@ class OptionsRouter: NSObject, OptionsRoutingLogic, OptionsDataPassing {
     */
     
     // MARK: Passing data
-    /*
-    func passDataToSomewhere(source: OptionsDataStore, destination: inout SomewhereDataStore) {
-        destination.name = source.name
+    func passDataToSpring(source: OptionsDataStore, destination: inout SpringDataStore) {
+        print(source.animation)
+        destination.animation = source.animation
     }
-    */
 }

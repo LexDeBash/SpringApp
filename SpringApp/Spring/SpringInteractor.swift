@@ -20,7 +20,7 @@ protocol SpringBusinessLogic {
 }
 
 protocol SpringDataStore {
-    var animation: Animation { get }
+    var animation: Animation { get set }
     var animations: [AnimationPreset] { get }
     var animationCurves: [AnimationCurve] { get }
 }
@@ -38,9 +38,7 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     }
     
     func didTapView(request: SpringRequest) {
-        worker = SpringWorker()
-        worker?.doSomeWork()
-        
+        print(animation)
         presenter?.presentAnimation(response: response)
     }
     

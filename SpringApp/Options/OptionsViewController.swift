@@ -17,36 +17,29 @@ protocol OptionsDisplayLogic: AnyObject {
     func displayOptions(viewModel: OptionsViewModel)
 }
 
-protocol OptionsViewControllerDelegate: AnyObject {
-    func dampingSliderChanged(_ sender: AnyObject)
-    func velocitySliderChanged(_ sender: AnyObject)
-    func scaleSliderChanged(_ sender: AnyObject)
-    func xSliderChanged(_ sender: AnyObject)
-    func ySliderChanged(_ sender: AnyObject)
-    func rotateSliderChanged(_ sender: AnyObject)
-    func resetButtonPressed(_ sender: AnyObject)
-}
-
 class OptionsViewController: UIViewController {
     
     @IBOutlet weak var modalView: SpringView!
     
-    @IBOutlet weak var dampingLabel: UILabel!
-    @IBOutlet weak var velocityLabel: UILabel!
-    @IBOutlet weak var scaleLabel: UILabel!
-    @IBOutlet weak var xLabel: UILabel!
-    @IBOutlet weak var yLabel: UILabel!
-    @IBOutlet weak var rotateLabel: UILabel!
+    @IBOutlet var dampingLabel: UILabel!
+    @IBOutlet var velocityLabel: UILabel!
+    @IBOutlet var scaleLabel: UILabel!
+    @IBOutlet var xLabel: UILabel!
+    @IBOutlet var yLabel: UILabel!
+    @IBOutlet var rotateLabel: UILabel!
     
-    @IBOutlet weak var dampingSlider: UISlider!
-    @IBOutlet weak var velocitySlider: UISlider!
-    @IBOutlet weak var scaleSlider: UISlider!
-    @IBOutlet weak var xSlider: UISlider!
-    @IBOutlet weak var ySlider: UISlider!
-    @IBOutlet weak var rotateSlider: UISlider!
+    @IBOutlet var dampingSlider: UISlider!
+    @IBOutlet var velocitySlider: UISlider!
+    @IBOutlet var scaleSlider: UISlider!
+    @IBOutlet var xSlider: UISlider!
+    @IBOutlet var ySlider: UISlider!
+    @IBOutlet var rotateSlider: UISlider!
         
     var interactor: OptionsBusinessLogic?
     var router: (NSObjectProtocol & OptionsRoutingLogic & OptionsDataPassing)?
+    var delegate: SpringDisplayLogic!
+    
+    private var request = OptionsRequest()
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,30 +56,38 @@ class OptionsViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
+        let request = OptionsRequest()
+        interactor?.setOptions(request: request)
     }
 
-    @IBAction func dampingSliderChanged(_ sender: AnyObject) {
-        
+    @IBAction func dampingSliderChanged() {
+        request.damping = dampingSlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
-    @IBAction func velocitySliderChanged(_ sender: AnyObject) {
-        
+    @IBAction func velocitySliderChanged() {
+        request.velocity = velocitySlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
-    @IBAction func scaleSliderChanged(_ sender: AnyObject) {
-        
+    @IBAction func scaleSliderChanged() {
+        request.scale = scaleSlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
-    @IBAction func xSliderChanged(_ sender: AnyObject) {
-        
+    @IBAction func xSliderChanged() {
+        request.x = xSlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
-    @IBAction func ySliderChanged(_ sender: AnyObject) {
-        
+    @IBAction func ySliderChanged() {
+        request.y = ySlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
-    @IBAction func rotateSliderChanged(_ sender: AnyObject) {
-        
+    @IBAction func rotateSliderChanged() {
+        request.rotate = rotateSlider.value
+        interactor?.sliderDidChanged(request: request)
     }
     
     @IBAction func resetButtonPressed(_ sender: AnyObject) {
@@ -94,6 +95,7 @@ class OptionsViewController: UIViewController {
     }
     
     @objc private func tapAction() {
+        router?.routeToSpring(segue: nil)
         dismiss(animated: true)
     }
     
@@ -113,7 +115,37 @@ class OptionsViewController: UIViewController {
 }
 
 extension OptionsViewController: OptionsDisplayLogic {
-    func displayOptions(viewModel: Options.Animate.ViewModel) {
+    func displayOptions(viewModel: OptionsViewModel) {
+        dampingSlider.setValue(Float(viewModel.damping), animated: false)
+        velocitySlider.setValue(Float(viewModel.velocity), animated: false)
+        scaleSlider.setValue(Float(viewModel.scale), animated: false)
+        xSlider.setValue(Float(viewModel.x), animated: false)
+        ySlider.setValue(Float(viewModel.y), animated: false)
+        rotateSlider.setValue(Float(viewModel.rotate), animated: false)
         
+        dampingLabel.text = viewModel.dampingText
+        velocityLabel.text = viewModel.velocityText
+        scaleLabel.text = viewModel.scaleText
+        xLabel.text = viewModel.xText
+        yLabel.text = viewModel.yText
+        rotateLabel.text = viewModel.rotateText
+        
+        let springViewModel = SpringViewModel(
+            animation: viewModel.animation,
+            curve: viewModel.curve,
+            force: viewModel.force,
+            duration: viewModel.duration,
+            delay: viewModel.delay,
+            damping: viewModel.damping,
+            velocity: viewModel.velocity,
+            scale: viewModel.scale,
+            x: viewModel.x,
+            y: viewModel.y,
+            rotate: viewModel.rotate,
+            forceText: String(format: "Force: %.1f", viewModel.force),
+            durationText: String(format: "Duration: %.1f", viewModel.duration),
+            delayText: String(format: "Delay: %.1f", viewModel.delay)
+        )
+        delegate.displayAnimation(viewModel: springViewModel)
     }
 }
