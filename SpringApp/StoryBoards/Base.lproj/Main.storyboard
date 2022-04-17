@@ -62,7 +62,7 @@
                                                 <color key="minimumTrackTintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="forceSliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="1n0-f3-1oW"/>
+                                                    <action selector="forceSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="1n0-f3-1oW"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="XYn-vA-cnQ">
@@ -70,7 +70,7 @@
                                                 <color key="minimumTrackTintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="durationSliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="EIz-NM-d1y"/>
+                                                    <action selector="durationSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="EIz-NM-d1y"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gys-4C-awE">
@@ -79,7 +79,7 @@
                                                 <color key="minimumTrackTintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="delaySliderChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="bgJ-Za-vP7"/>
+                                                    <action selector="delaySliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="bgJ-Za-vP7"/>
                                                 </connections>
                                             </slider>
                                         </subviews>

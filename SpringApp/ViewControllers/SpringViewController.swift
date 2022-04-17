@@ -64,15 +64,15 @@ class SpringViewController: UIViewController {
         }
     }
     
-    @IBAction func forceSliderChanged() {
+    @IBAction func forceSliderAction() {
         
     }
     
-    @IBAction func durationSliderChanged() {
+    @IBAction func durationSliderAction() {
         
     }
     
-    @IBAction func delaySliderChanged() {
+    @IBAction func delaySliderAction() {
         
     }
     
@@ -124,13 +124,14 @@ extension SpringViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var request = SpringRequest()
         switch component {
         case 0:
-            animationIndex = row
-//            animateView()
+            request.rowIndex = row
+            interactor?.didSelectAnimationRow(request: request)
         default:
-            curvesIndex = row
-//            animateView()
+            request.rowIndex = row
+            interactor?.didSelectCurveRow(request: request)
         }
     }
 }

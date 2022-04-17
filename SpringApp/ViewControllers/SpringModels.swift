@@ -19,7 +19,7 @@ enum Spring {
     // MARK: Use cases
     enum Animate {
         struct Request {
-            
+            var rowIndex = 0
         }
         
         struct Response {

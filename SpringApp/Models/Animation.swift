@@ -8,7 +8,7 @@
 import Foundation
 
 struct Animation {
-    var name = "shake"
+    var name = "slideLeft"
     var curve = "easeIn"
     var force = 1.0
     var duration = 1.0

@@ -10,12 +10,18 @@
 //  see http://clean-swift.com
 //
 
+import SpringAnimation
+
 protocol SpringBusinessLogic {
     func didTapView(request: SpringRequest)
+    func didSelectAnimationRow(request: SpringRequest)
+    func didSelectCurveRow(request: SpringRequest)
 }
 
 protocol SpringDataStore {
     var animation: Animation { get }
+    var animations: [AnimationPreset] { get }
+    var animationCurves: [AnimationCurve] { get }
 }
 
 class SpringInteractor: SpringBusinessLogic, SpringDataStore {
@@ -23,12 +29,27 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     var presenter: SpringPresentationLogic?
     var worker: SpringWorker?
     var animation = Animation()
+    var animations = AnimationPreset.allCases
+    var animationCurves = AnimationCurve.allCases
+    
+    private var response: SpringResponse {
+        SpringResponse(animation: animation)
+    }
     
     func didTapView(request: SpringRequest) {
         worker = SpringWorker()
         worker?.doSomeWork()
         
-        let response = SpringResponse(animation: animation)
+        presenter?.presentAnimation(response: response)
+    }
+    
+    func didSelectAnimationRow(request: SpringRequest) {
+        animation.name = animations[request.rowIndex].rawValue
+        presenter?.presentAnimation(response: response)
+    }
+    
+    func didSelectCurveRow(request: SpringRequest) {
+        animation.curve = animationCurves[request.rowIndex].rawValue
         presenter?.presentAnimation(response: response)
     }
 }
