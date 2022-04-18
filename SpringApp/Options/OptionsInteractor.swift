@@ -16,17 +16,19 @@ protocol OptionsBusinessLogic {
 }
 
 protocol OptionsDataStore {
-    var animation: Animation { get set }
+    var animation: Animation? { get set }
+    var delegate: SpringDataStore? { get set }
 }
 
 class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     
     var presenter: OptionsPresentationLogic?
     var worker: OptionsWorker?
-    var animation = Animation()
+    var animation: Animation?
+    var delegate: SpringDataStore?
     
     private var response: OptionsResponse {
-        OptionsResponse(animation: animation)
+        OptionsResponse(animation: animation ?? Animation())
     }
     
     func setOptions(request: OptionsRequest) {
@@ -34,12 +36,13 @@ class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     }
     
     func sliderDidChanged(request: OptionsRequest) {
-        animation.damping = Double(request.damping)
-        animation.velocity = Double(request.velocity)
-        animation.scale = Double(request.scale)
-        animation.x = Double(request.x)
-        animation.y = Double(request.y)
-        animation.rotate = Double(request.rotate)
+        animation?.damping = Double(request.damping)
+        animation?.velocity = Double(request.velocity)
+        animation?.scale = Double(request.scale)
+        animation?.x = Double(request.x)
+        animation?.y = Double(request.y)
+        animation?.rotate = Double(request.rotate)
+        delegate?.animation = animation
         presenter?.presentOptions(response: response)
     }
 }

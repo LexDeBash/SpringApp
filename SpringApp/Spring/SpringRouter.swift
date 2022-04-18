@@ -32,6 +32,7 @@ class SpringRouter: NSObject, SpringRoutingLogic, SpringDataPassing {
             var destinationDS = destinationVC.router!.dataStore!
             passDataToOptions(source: dataStore!, destination: &destinationDS)
             destinationVC.delegate = springVC
+            destinationDS.delegate = dataStore
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let destinationVC = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController

@@ -49,6 +49,7 @@ class SpringViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
+        interactor?.didTapView(request: request)
     }
     
     @objc private func tapAction() {

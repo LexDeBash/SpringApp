@@ -20,7 +20,7 @@ protocol SpringBusinessLogic {
 }
 
 protocol SpringDataStore {
-    var animation: Animation { get set }
+    var animation: Animation? { get set }
     var animations: [AnimationPreset] { get }
     var animationCurves: [AnimationCurve] { get }
 }
@@ -29,33 +29,35 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     
     var presenter: SpringPresentationLogic?
     var worker: SpringWorker?
-    var animation = Animation()
+    var animation: Animation?
     var animations = AnimationPreset.allCases
     var animationCurves = AnimationCurve.allCases
     
     private var response: SpringResponse {
-        SpringResponse(animation: animation)
+        SpringResponse(animation: animation ?? Animation())
     }
     
     func didTapView(request: SpringRequest) {
-        print(animation)
+        if animation == nil {
+            animation = Animation()
+        }
         presenter?.presentAnimation(response: response)
     }
     
     func didSelectAnimationRow(request: SpringRequest) {
-        animation.name = animations[request.rowIndex].rawValue
+        animation?.name = animations[request.rowIndex].rawValue
         presenter?.presentAnimation(response: response)
     }
     
     func didSelectCurveRow(request: SpringRequest) {
-        animation.curve = animationCurves[request.rowIndex].rawValue
+        animation?.curve = animationCurves[request.rowIndex].rawValue
         presenter?.presentAnimation(response: response)
     }
     
     func sliderDidChanged(request: SpringRequest) {
-        animation.force = Double(request.forceSliderValue)
-        animation.duration = Double(request.durationSliderValue)
-        animation.delay = Double(request.delaySliderValue)
+        animation?.force = Double(request.forceSliderValue)
+        animation?.duration = Double(request.durationSliderValue)
+        animation?.delay = Double(request.delaySliderValue)
         presenter?.presentAnimation(response: response)
     }
 }

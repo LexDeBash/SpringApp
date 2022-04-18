@@ -32,7 +32,6 @@ class OptionsRouter: NSObject, OptionsRoutingLogic, OptionsDataPassing {
             var destinationDS = destinationVC.router!.dataStore!
             passDataToSpring(source: dataStore!, destination: &destinationDS)
         } else {
-            print("route")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let destinationVC = storyboard.instantiateViewController(withIdentifier: "SpringViewController") as! SpringViewController
             var destinationDS = destinationVC.router!.dataStore!
@@ -50,7 +49,9 @@ class OptionsRouter: NSObject, OptionsRoutingLogic, OptionsDataPassing {
     
     // MARK: Passing data
     func passDataToSpring(source: OptionsDataStore, destination: inout SpringDataStore) {
-        print(source.animation)
+        print("destination animation: ", destination.animation)
+        print("Source animation: ", source.animation)
         destination.animation = source.animation
+        print("destination animation: ", destination.animation)
     }
 }
