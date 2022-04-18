@@ -83,8 +83,8 @@ class OptionsViewController: UIViewController {
         
     }
     
-    @IBAction func resetButtonPressed(_ sender: AnyObject) {
-
+    @IBAction func resetButtonPressed() {
+        interactor?.resetButtonPressed(request: request)
     }
     
     @objc private func tapAction() {

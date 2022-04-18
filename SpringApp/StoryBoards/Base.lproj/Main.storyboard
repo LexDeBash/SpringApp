@@ -308,7 +308,7 @@
                                         <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-I6-A18" customClass="DesignableButton" customModule="Spring">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-I6-A18">
                                         <rect key="frame" x="157" y="198" width="100" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="KPG-QB-0iK"/>
@@ -331,7 +331,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="resetButtonPressed:" destination="MIr-HP-nnC" eventType="touchUpInside" id="8zJ-a6-kTg"/>
+                                            <action selector="resetButtonPressed" destination="MIr-HP-nnC" eventType="touchUpInside" id="DCo-v1-hda"/>
                                         </connections>
                                     </button>
                                 </subviews>

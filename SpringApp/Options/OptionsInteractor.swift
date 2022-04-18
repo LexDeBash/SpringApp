@@ -18,6 +18,7 @@ protocol OptionsBusinessLogic {
     func xSliderDidChanged(request: OptionsRequest)
     func ySliderDidChanged(request: OptionsRequest)
     func rotateSliderDidChanged(request: OptionsRequest)
+    func resetButtonPressed(request: OptionsRequest)
 }
 
 protocol OptionsDataStore {
@@ -68,6 +69,11 @@ class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     
     func rotateSliderDidChanged(request: OptionsRequest) {
         animation?.rotate = Double(request.rotate)
+        passDataToPresenter()
+    }
+    
+    func resetButtonPressed(request: OptionsRequest) {
+        self.animation = Animation()
         passDataToPresenter()
     }
     
