@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol OptionsRoutingLogic {
-    func routeToSpring(segue: UIStoryboardSegue?)
+    
 }
 
 protocol OptionsDataPassing {
@@ -24,34 +24,4 @@ class OptionsRouter: NSObject, OptionsRoutingLogic, OptionsDataPassing {
     
     weak var viewController: OptionsViewController?
     var dataStore: OptionsDataStore?
-    
-    // MARK: Routing
-    func routeToSpring(segue: UIStoryboardSegue?) {
-        if let segue = segue {
-            let destinationVC = segue.destination as! SpringViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSpring(source: dataStore!, destination: &destinationDS)
-        } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SpringViewController") as! SpringViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSpring(source: dataStore!, destination: &destinationDS)
-//            navigateToSomewhere(source: viewController!, destination: destinationVC)
-        }
-    }
-    
-    // MARK: Navigation
-    /*
-    func navigateToSomewhere(source: OptionsViewController, destination: SomewhereViewController) {
-        source.show(destination, sender: nil)
-    }
-    */
-    
-    // MARK: Passing data
-    func passDataToSpring(source: OptionsDataStore, destination: inout SpringDataStore) {
-        print("destination animation: ", destination.animation)
-        print("Source animation: ", source.animation)
-        destination.animation = source.animation
-        print("destination animation: ", destination.animation)
-    }
 }

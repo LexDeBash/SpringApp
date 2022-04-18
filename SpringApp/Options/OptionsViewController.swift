@@ -95,7 +95,6 @@ class OptionsViewController: UIViewController {
     }
     
     @objc private func tapAction() {
-        router?.routeToSpring(segue: nil)
         dismiss(animated: true)
     }
     
