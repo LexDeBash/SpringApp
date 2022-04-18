@@ -63,19 +63,19 @@ class SpringViewController: UIViewController {
         }
     }
     
-    @IBAction func forceSliderAction() {
-        request.forceSliderValue = forceSlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func durationSliderAction() {
-        request.durationSliderValue = durationSlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func delaySliderAction() {
-        request.delaySliderValue = delaySlider.value
-        interactor?.sliderDidChanged(request: request)
+    @IBAction func sliderAction(_ sender: UISlider) {
+        switch sender {
+        case forceSlider:
+            request.forceSliderValue = forceSlider.value
+            interactor?.forceSliderDidChanged(request: request)
+        case durationSlider:
+            request.durationSliderValue = durationSlider.value
+            interactor?.durationSliderDidChanged(request: request)
+        default:
+            request.delaySliderValue = delaySlider.value
+            interactor?.delaySliderDidChanged(request: request)
+            
+        }
     }
     
     // MARK: Setup
