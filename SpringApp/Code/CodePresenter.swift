@@ -11,15 +11,15 @@
 //
 
 protocol CodePresentationLogic {
-    func presentSomething(response: Code.Something.Response)
+    func presentSomething(response: Code.PresentCode.Response)
 }
 
 class CodePresenter: CodePresentationLogic {
     
     weak var viewController: CodeDisplayLogic?
     
-    func presentSomething(response: Code.Something.Response) {
-        let viewModel = Code.Something.ViewModel()
+    func presentSomething(response: Code.PresentCode.Response) {
+        let viewModel = Code.PresentCode.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
     }
 }

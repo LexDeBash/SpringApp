@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CodeDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Code.Something.ViewModel)
+    func displaySomething(viewModel: Code.PresentCode.ViewModel)
 }
 
 class CodeViewController: UIViewController {
@@ -49,7 +49,7 @@ class CodeViewController: UIViewController {
     }
         
     private func doSomething() {
-        let request = Code.Something.Request()
+        let request = Code.PresentCode.Request()
         interactor?.doSomething(request: request)
     }
     
@@ -69,7 +69,7 @@ class CodeViewController: UIViewController {
 }
 
 extension CodeViewController: CodeDisplayLogic {
-    func displaySomething(viewModel: Code.Something.ViewModel) {
+    func displaySomething(viewModel: Code.PresentCode.ViewModel) {
         
     }
 }
