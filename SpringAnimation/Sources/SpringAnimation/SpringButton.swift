@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpringButton: UIButton, Springable {
+open class SpringButton: UIButton, Springable {
     @IBInspectable public var autostart: Bool = false
     @IBInspectable public var autohide: Bool = false
     @IBInspectable public var animation: String = ""
