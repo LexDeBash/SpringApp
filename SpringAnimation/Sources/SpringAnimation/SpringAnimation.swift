@@ -83,6 +83,34 @@ public final class SpringAnimation {
         }
     }
     
+    public func animate() {
+        view.animateFrom = true
+        animationPreset()
+        setView {}
+    }
+    
+    public func animateNext(completion: @escaping() -> Void) {
+        view.animateFrom = true
+        animationPreset()
+        setView {
+            completion()
+        }
+    }
+    
+    public func animateTo() {
+        view.animateFrom = false
+        animationPreset()
+        setView {}
+    }
+    
+    public func animateToNext(completion: @escaping () -> ()) {
+        view.animateFrom = false
+        animationPreset()
+        setView {
+            completion()
+        }
+    }
+    
     private func commonInit() {
         NotificationCenter.default.addObserver(
             self,
@@ -100,11 +128,7 @@ public final class SpringAnimation {
         }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    func animationPreset() {
+    private func animationPreset() {
         view.alpha = 0.99
         if let animation = AnimationPreset(rawValue: view.animation) {
             switch animation {
@@ -313,7 +337,7 @@ public final class SpringAnimation {
         }
     }
     
-    func setView(completion: @escaping() -> Void) {
+    private func setView(completion: @escaping() -> Void) {
         if view.animateFrom {
             let translate = CGAffineTransform(translationX: view.x, y: view.y)
             let scale = CGAffineTransform(scaleX: view.scaleX, y: view.scaleY)
@@ -417,5 +441,13 @@ public final class SpringAnimation {
         view.repeatCount = 1
         view.delay = 0
         view.duration = 0.7
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
     }
 }
