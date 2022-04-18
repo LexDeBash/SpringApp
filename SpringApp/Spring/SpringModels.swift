@@ -21,7 +21,7 @@ enum Spring {
         struct Request {
             var rowIndex = 0
             var forceSliderValue: Float = 1
-            var durationSliderValue: Float = 1
+            var durationSliderValue: Float = 0.7
             var delaySliderValue: Float = 0
         }
         

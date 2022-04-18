@@ -12,7 +12,12 @@
 
 protocol OptionsBusinessLogic {
     func setOptions(request: OptionsRequest)
-    func sliderDidChanged(request: OptionsRequest)
+    func dampingSliderDidChanged(request: OptionsRequest)
+    func velocitySliderDidChanged(request: OptionsRequest)
+    func scaleSliderDidChanged(request: OptionsRequest)
+    func xSliderDidChanged(request: OptionsRequest)
+    func ySliderDidChanged(request: OptionsRequest)
+    func rotateSliderDidChanged(request: OptionsRequest)
 }
 
 protocol OptionsDataStore {
@@ -33,15 +38,40 @@ class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     
     func setOptions(request: OptionsRequest) {
         presenter?.presentOptions(response: response)
+        passDataToPresenter()
     }
     
-    func sliderDidChanged(request: OptionsRequest) {
+    func dampingSliderDidChanged(request: OptionsRequest) {
         animation?.damping = Double(request.damping)
+        passDataToPresenter()
+    }
+    
+    func velocitySliderDidChanged(request: OptionsRequest) {
         animation?.velocity = Double(request.velocity)
+        passDataToPresenter()
+    }
+    
+    func scaleSliderDidChanged(request: OptionsRequest) {
         animation?.scale = Double(request.scale)
+        passDataToPresenter()
+    }
+    
+    func xSliderDidChanged(request: OptionsRequest) {
         animation?.x = Double(request.x)
+        passDataToPresenter()
+    }
+    
+    func ySliderDidChanged(request: OptionsRequest) {
         animation?.y = Double(request.y)
+        passDataToPresenter()
+    }
+    
+    func rotateSliderDidChanged(request: OptionsRequest) {
         animation?.rotate = Double(request.rotate)
+        passDataToPresenter()
+    }
+    
+    private func passDataToPresenter() {
         delegate?.animation = animation
         presenter?.presentOptions(response: response)
     }

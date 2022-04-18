@@ -8,11 +8,11 @@
 import Foundation
 
 struct Animation {
-    var name = "slideLeft"
+    var name = "pop"
     var curve = "easeIn"
     var force = 1.0
-    var duration = 1.0
-    var delay = 0.0
+    var duration = 0.7
+    var delay = 1.0
     
     var damping = 0.7
     var velocity = 0.7

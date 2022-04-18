@@ -30,9 +30,6 @@ class SpringViewController: UIViewController {
     private let animations = AnimationPreset.allCases
     private let animationCurves = AnimationCurve.allCases
     
-    private var animationIndex = 0
-    private var curvesIndex = 0
-    
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

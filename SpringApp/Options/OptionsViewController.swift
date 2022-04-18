@@ -56,38 +56,31 @@ class OptionsViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
-        let request = OptionsRequest()
         interactor?.setOptions(request: request)
     }
 
-    @IBAction func dampingSliderChanged() {
-        request.damping = dampingSlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func velocitySliderChanged() {
-        request.velocity = velocitySlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func scaleSliderChanged() {
-        request.scale = scaleSlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func xSliderChanged() {
-        request.x = xSlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func ySliderChanged() {
-        request.y = ySlider.value
-        interactor?.sliderDidChanged(request: request)
-    }
-    
-    @IBAction func rotateSliderChanged() {
-        request.rotate = rotateSlider.value
-        interactor?.sliderDidChanged(request: request)
+    @IBAction func optionSlider(_ sender: UISlider) {
+        switch sender {
+        case dampingSlider:
+            request.damping = dampingSlider.value
+            interactor?.dampingSliderDidChanged(request: request)
+        case velocitySlider:
+            request.velocity = velocitySlider.value
+            interactor?.velocitySliderDidChanged(request: request)
+        case scaleSlider:
+            request.scale = scaleSlider.value
+            interactor?.scaleSliderDidChanged(request: request)
+        case xSlider:
+            request.x = xSlider.value
+            interactor?.xSliderDidChanged(request: request)
+        case ySlider:
+            request.y = ySlider.value
+            interactor?.ySliderDidChanged(request: request)
+        default:
+            request.rotate = rotateSlider.value
+            interactor?.rotateSliderDidChanged(request: request)
+        }
+        
     }
     
     @IBAction func resetButtonPressed(_ sender: AnyObject) {
