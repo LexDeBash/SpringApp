@@ -238,7 +238,7 @@
                                         <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ofe-Wn-VSk">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-5" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ofe-Wn-VSk">
                                         <rect key="frame" x="311" y="35" width="90" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="9o7-sR-mNG"/>
@@ -256,7 +256,7 @@
                                         <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Jlr-hz-AbZ">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-300" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Jlr-hz-AbZ">
                                         <rect key="frame" x="13" y="116" width="90" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ogd-Tj-VoG"/>
@@ -274,7 +274,7 @@
                                         <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="HIF-ve-Ud0">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-300" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="HIF-ve-Ud0">
                                         <rect key="frame" x="162" y="116" width="90" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="WBR-UI-slU"/>
@@ -292,7 +292,7 @@
                                         <color key="textColor" red="0.51576060059999995" green="0.54782974719999999" blue="0.62907493110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="VN5-CK-ef2">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="VN5-CK-ef2">
                                         <rect key="frame" x="311" y="116" width="90" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="K13-Eg-ZkR"/>
