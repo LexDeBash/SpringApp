@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SpringAnimation
 
 protocol CodeDisplayLogic: AnyObject {
     func displayCode(viewModel: CodeViewModel)
@@ -20,6 +21,15 @@ class CodeViewController: UIViewController {
         
     var interactor: CodeBusinessLogic?
     var router: (NSObjectProtocol & CodeRoutingLogic & CodeDataPassing)?
+    
+    private lazy var codeTextView: UITextView = {
+        var textView = UITextView()
+        textView.backgroundColor = textView.backgroundColor?.withAlphaComponent(0)
+        textView.textColor = .white
+        textView.font = UIFont(name: "Menlo Regular", size: 14)
+        textView.text = "layer.animation = some animation"
+        return textView
+    }()
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -35,9 +45,9 @@ class CodeViewController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Code"
-        view.backgroundColor = .gray
-        doSomething()
+        view.backgroundColor = UIColor(hex: "3D424E")
+        view.addSubview(codeTextView)
+        setupConstraints()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,10 +64,16 @@ class CodeViewController: UIViewController {
             }
         }
     }
+    
+    private func setupConstraints() {
+        codeTextView.translatesAutoresizingMaskIntoConstraints = false
         
-    private func doSomething() {
-        let request = Code.PresentCode.Request()
-        interactor?.doSomething(request: request)
+        NSLayoutConstraint.activate([
+            codeTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            codeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            codeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            codeTextView.heightAnchor.constraint(equalToConstant: 100)
+        ])
     }
     
     // MARK: Setup

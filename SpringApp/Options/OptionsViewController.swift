@@ -19,7 +19,7 @@ protocol OptionsDisplayLogic: AnyObject {
 
 class OptionsViewController: UIViewController {
     
-    @IBOutlet weak var modalView: SpringView!
+    @IBOutlet var modalView: SpringView!
     
     @IBOutlet var dampingLabel: UILabel!
     @IBOutlet var velocityLabel: UILabel!
