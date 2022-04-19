@@ -93,7 +93,10 @@ class OptionsViewController: UIViewController {
     }
     
     @objc private func tapAction() {
-        dismiss(animated: true)
+        modalView.animation = "slideUp"
+        modalView.animateToNext {
+            self.dismiss(animated: false)
+        }
     }
     
     // MARK: Setup
