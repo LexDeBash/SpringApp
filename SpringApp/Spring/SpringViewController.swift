@@ -49,10 +49,6 @@ class SpringViewController: UIViewController {
         interactor?.didTapView(request: request)
     }
     
-    @objc private func tapAction() {
-        interactor?.didTapView(request: request)
-    }
-    
     // MARK: Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
@@ -61,6 +57,10 @@ class SpringViewController: UIViewController {
                 router.perform(selector, with: segue)
             }
         }
+    }
+    
+    @IBAction func codeButtonPressed() {
+        
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -76,6 +76,10 @@ class SpringViewController: UIViewController {
             interactor?.delaySliderDidChanged(request: request)
             
         }
+    }
+    
+    @objc private func tapAction() {
+        interactor?.didTapView(request: request)
     }
     
     // MARK: Setup

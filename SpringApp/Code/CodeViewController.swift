@@ -35,6 +35,7 @@ class CodeViewController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gray
         doSomething()
     }
     
