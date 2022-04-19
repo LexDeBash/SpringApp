@@ -15,13 +15,14 @@ protocol CodeBusinessLogic {
 }
 
 protocol CodeDataStore {
-    
+    var animation: Animation? { get set }
 }
 
 class CodeInteractor: CodeBusinessLogic, CodeDataStore {
     
     var presenter: CodePresentationLogic?
     var worker: CodeWorker?
+    var animation: Animation?
     
     func doSomething(request: Code.PresentCode.Request) {
         worker = CodeWorker()

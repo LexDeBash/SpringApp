@@ -14,6 +14,7 @@ import UIKit
 
 @objc protocol SpringRoutingLogic {
     func routeToOptions(segue: UIStoryboardSegue?)
+    func routeToCode()
 }
 
 protocol SpringDataPassing {
@@ -42,15 +43,30 @@ class SpringRouter: NSObject, SpringRoutingLogic, SpringDataPassing {
         }
     }
     
+    func routeToCode() {
+        let destinationVC = CodeViewController()
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToCode(source: dataStore!, destination: &destinationDS)
+        navigateToCode(source: springVC!, destination: destinationVC)
+    }
+    
     // MARK: Navigation
-    func navigateToOptions(source: SpringViewController, destination: OptionsViewController) {
+    private func navigateToOptions(source: SpringViewController, destination: OptionsViewController) {
+        source.present(destination, animated: true)
+    }
+    
+    private func navigateToCode(source: SpringViewController, destination: CodeViewController) {
         guard let sheetView = destination.sheetPresentationController else { return }
         sheetView.detents = [.medium()]
         source.present(destination, animated: true)
     }
     
     // MARK: Passing data
-    func passDataToOptions(source: SpringDataStore, destination: inout OptionsDataStore) {
+    private func passDataToOptions(source: SpringDataStore, destination: inout OptionsDataStore) {
+        destination.animation = source.animation
+    }
+    
+    private func passDataToCode(source: SpringDataStore, destination: inout CodeDataStore) {
         destination.animation = source.animation
     }
 }

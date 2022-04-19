@@ -60,7 +60,7 @@ class SpringViewController: UIViewController {
     }
     
     @IBAction func codeButtonPressed() {
-        
+        router?.routeToCode()
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {

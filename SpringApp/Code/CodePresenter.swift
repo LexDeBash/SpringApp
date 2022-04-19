@@ -20,6 +20,6 @@ class CodePresenter: CodePresentationLogic {
     
     func presentSomething(response: Code.PresentCode.Response) {
         let viewModel = Code.PresentCode.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        viewController?.displayCode(viewModel: viewModel)
     }
 }

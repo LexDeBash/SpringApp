@@ -13,7 +13,7 @@
 import UIKit
 
 protocol CodeDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Code.PresentCode.ViewModel)
+    func displayCode(viewModel: CodeViewModel)
 }
 
 class CodeViewController: UIViewController {
@@ -35,8 +35,14 @@ class CodeViewController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Code"
         view.backgroundColor = .gray
         doSomething()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     // MARK: Routing
@@ -70,7 +76,7 @@ class CodeViewController: UIViewController {
 }
 
 extension CodeViewController: CodeDisplayLogic {
-    func displaySomething(viewModel: Code.PresentCode.ViewModel) {
+    func displayCode(viewModel: Code.PresentCode.ViewModel) {
         
     }
 }
