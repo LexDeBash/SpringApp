@@ -58,6 +58,11 @@ class OptionsViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         interactor?.setOptions(request: request)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        modalView.animate()
+    }
 
     @IBAction func optionSlider(_ sender: UISlider) {
         switch sender {

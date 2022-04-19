@@ -147,7 +147,7 @@
                                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="MIr-HP-nnC" kind="presentation" identifier="Options" modalPresentationStyle="automatic" id="r9a-ge-iJk"/>
+                                                    <segue destination="MIr-HP-nnC" kind="presentation" identifier="Options" animates="NO" modalPresentationStyle="overCurrentContext" id="r9a-ge-iJk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -196,11 +196,11 @@
             <objects>
                 <viewController id="MIr-HP-nnC" customClass="OptionsViewController" customModule="SpringApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KuC-SD-gUa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="La6-pb-hyX" customClass="SpringView" customModule="SpringAnimation">
-                                <rect key="frame" x="0.0" y="577" width="414" height="345"/>
+                                <rect key="frame" x="0.0" y="631" width="414" height="345"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999998807907104" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-3k-MDH">
                                         <rect key="frame" x="13" y="35" width="90" height="31"/>
