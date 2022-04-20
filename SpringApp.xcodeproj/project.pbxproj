@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A85E83E2280DA79E00FB6B82 /* CodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E83DC280DA79E00FB6B82 /* CodePresenter.swift */; };
-		A85E83E3280DA79E00FB6B82 /* CodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E83DD280DA79E00FB6B82 /* CodeWorker.swift */; };
 		A85E83E4280DA79E00FB6B82 /* CodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E83DE280DA79E00FB6B82 /* CodeRouter.swift */; };
 		A85E83E5280DA79E00FB6B82 /* CodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E83DF280DA79E00FB6B82 /* CodeModels.swift */; };
 		A85E83E6280DA79E00FB6B82 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E83E0280DA79E00FB6B82 /* CodeViewController.swift */; };
@@ -36,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		A85E83DC280DA79E00FB6B82 /* CodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePresenter.swift; sourceTree = "<group>"; };
-		A85E83DD280DA79E00FB6B82 /* CodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeWorker.swift; sourceTree = "<group>"; };
 		A85E83DE280DA79E00FB6B82 /* CodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRouter.swift; sourceTree = "<group>"; };
 		A85E83DF280DA79E00FB6B82 /* CodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeModels.swift; sourceTree = "<group>"; };
 		A85E83E0280DA79E00FB6B82 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				A85E83E0280DA79E00FB6B82 /* CodeViewController.swift */,
 				A85E83E1280DA79E00FB6B82 /* CodeInteractor.swift */,
 				A85E83DC280DA79E00FB6B82 /* CodePresenter.swift */,
-				A85E83DD280DA79E00FB6B82 /* CodeWorker.swift */,
 				A85E83DE280DA79E00FB6B82 /* CodeRouter.swift */,
 				A85E83DF280DA79E00FB6B82 /* CodeModels.swift */,
 			);
@@ -263,7 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85E83E3280DA79E00FB6B82 /* CodeWorker.swift in Sources */,
 				A85E83E5280DA79E00FB6B82 /* CodeModels.swift in Sources */,
 				A86038C7280ACEB40058D49E /* SpringViewController.swift in Sources */,
 				A85E83E2280DA79E00FB6B82 /* CodePresenter.swift in Sources */,

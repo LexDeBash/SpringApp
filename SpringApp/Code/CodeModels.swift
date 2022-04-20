@@ -10,7 +10,6 @@
 //  see http://clean-swift.com
 //
 
-typealias CodeRequest = Code.PresentCode.Request
 typealias CodeResponse = Code.PresentCode.Response
 typealias CodeViewModel = Code.PresentCode.ViewModel
 
@@ -18,16 +17,13 @@ enum Code {
  
     // MARK: Use cases
     enum PresentCode {
-        struct Request {
-            
-        }
         
         struct Response {
-            
+            let animation: Animation
         }
         
         struct ViewModel {
-            
+            let codeText: String
         }
     }
 }

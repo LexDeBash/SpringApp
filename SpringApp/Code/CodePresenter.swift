@@ -11,15 +11,50 @@
 //
 
 protocol CodePresentationLogic {
-    func presentSomething(response: Code.PresentCode.Response)
+    func presentCode(response: CodeResponse)
 }
 
 class CodePresenter: CodePresentationLogic {
     
     weak var viewController: CodeDisplayLogic?
     
-    func presentSomething(response: Code.PresentCode.Response) {
-        let viewModel = Code.PresentCode.ViewModel()
+    func presentCode(response: CodeResponse) {
+        var codeText = ""
+        if !response.animation.name.isEmpty {
+            codeText += "view.animation = \"\(response.animation.name)\"\n"
+        }
+        if !response.animation.curve.isEmpty {
+            codeText += "view.curve = \"\(response.animation.curve)\"\n"
+        }
+        if response.animation.force != 1 {
+            codeText += String(format: "\nview.force = %.1f\n", response.animation.force)
+        }
+        if response.animation.duration != 0.7 {
+            codeText += String(format: "view.duration = %.1f\n", response.animation.duration)
+        }
+        if response.animation.delay != 1 {
+            codeText += String(format: "view.delay = %.1f\n", response.animation.delay)
+        }
+        if response.animation.damping != 0.7 {
+            codeText += String(format: "view.damping = %.1f\n", response.animation.damping)
+        }
+        if response.animation.velocity != 0.7 {
+            codeText += String(format: "view.velocity = %.1f\n", response.animation.velocity)
+        }
+        if response.animation.rotate != 0 {
+            codeText += String(format: "view.rotate = %.1f\n", response.animation.rotate)
+        }
+        if response.animation.x != 0 {
+            codeText += String(format: "view.x = %.1f\n", response.animation.x)
+        }
+        if response.animation.y != 0 {
+            codeText += String(format: "view.y = %.1f\n", response.animation.y)
+        }
+        if response.animation.scale != 1 {
+            codeText += String(format: "view.scale = %.1f\n", response.animation.scale)
+        }
+        codeText += "\nview.animate()"
+        let viewModel = CodeViewModel(codeText: codeText)
         viewController?.displayCode(viewModel: viewModel)
     }
 }

@@ -11,7 +11,7 @@
 //
 
 protocol CodeBusinessLogic {
-    func doSomething(request: Code.PresentCode.Request)
+    func showCode()
 }
 
 protocol CodeDataStore {
@@ -21,14 +21,11 @@ protocol CodeDataStore {
 class CodeInteractor: CodeBusinessLogic, CodeDataStore {
     
     var presenter: CodePresentationLogic?
-    var worker: CodeWorker?
     var animation: Animation?
     
-    func doSomething(request: Code.PresentCode.Request) {
-        worker = CodeWorker()
-        worker?.doSomeWork()
-        
-        let response = Code.PresentCode.Response()
-        presenter?.presentSomething(response: response)
+    func showCode() {
+        guard let animation = animation else { return }
+        let response = CodeResponse(animation: animation)
+        presenter?.presentCode(response: response)
     }
 }

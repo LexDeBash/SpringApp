@@ -33,6 +33,7 @@ class CodeViewController: UIViewController {
     private lazy var codeTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = textView.backgroundColor?.withAlphaComponent(0)
+        textView.isEditable = false
         textView.textColor = .white
         textView.font = UIFont(name: "Menlo Regular", size: 14)
         textView.text = "layer.animation = some animation"
@@ -56,6 +57,7 @@ class CodeViewController: UIViewController {
         view.backgroundColor = UIColor(hex: "3D424E")
         setupSubview(codeLabel, codeTextView)
         setupConstraints()
+        interactor?.showCode()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,7 +95,7 @@ class CodeViewController: UIViewController {
             codeTextView.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 20),
             codeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             codeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            codeTextView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -20)
+            codeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20)
         ])
     }
     
@@ -114,6 +116,6 @@ class CodeViewController: UIViewController {
 
 extension CodeViewController: CodeDisplayLogic {
     func displayCode(viewModel: CodeViewModel) {
-        
+        codeTextView.text = viewModel.codeText
     }
 }
