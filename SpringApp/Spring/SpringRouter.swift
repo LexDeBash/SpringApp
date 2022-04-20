@@ -58,7 +58,7 @@ class SpringRouter: NSObject, SpringRoutingLogic, SpringDataPassing {
     private func navigateToCode(source: SpringViewController, destination: CodeViewController) {
         guard let sheetView = destination.sheetPresentationController else { return }
         sheetView.detents = [.medium()]
-        source.present(destination, animated: true)
+        source.present(destination, animated: false)
     }
     
     // MARK: Passing data

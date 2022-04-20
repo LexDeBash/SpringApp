@@ -22,21 +22,28 @@ class CodeViewController: UIViewController {
     var interactor: CodeBusinessLogic?
     var router: (NSObjectProtocol & CodeRoutingLogic & CodeDataPassing)?
     
+    private lazy var modalView: SpringView = {
+       let view = SpringView()
+        view.isHidden = true
+        return view
+    }()
+    
     private lazy var codeLabel: UILabel = {
         let label = UILabel()
+        label.backgroundColor = UIColor(hex: "3D424E")
         label.text = "Code"
         label.textColor = UIColor(hex: "848CA0")
         label.font = UIFont(name: "Avenir Next Regular", size: 20)
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var codeTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = textView.backgroundColor?.withAlphaComponent(0)
+        textView.backgroundColor = UIColor(hex: "3D424E")
         textView.isEditable = false
         textView.textColor = .white
         textView.font = UIFont(name: "Menlo Regular", size: 14)
-        textView.text = "layer.animation = some animation"
         return textView
     }()
     
@@ -51,10 +58,13 @@ class CodeViewController: UIViewController {
         setup()
     }
     
+    override func loadView() {
+        view = modalView
+    }
+    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(hex: "3D424E")
         setupSubview(codeLabel, codeTextView)
         setupConstraints()
         interactor?.showCode()
@@ -62,7 +72,9 @@ class CodeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        modalView.animation = "squeezeUp"
+        modalView.isHidden = false
+        modalView.animate()
     }
     
     // MARK: Routing
@@ -85,17 +97,19 @@ class CodeViewController: UIViewController {
         codeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            codeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
-            codeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            codeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            codeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            codeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            codeLabel.heightAnchor.constraint(equalToConstant: 80)
         ])
         
         codeTextView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            codeTextView.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 20),
-            codeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            codeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            codeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20)
+            codeTextView.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 0),
+            codeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            codeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            codeTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100)
         ])
     }
     
