@@ -22,8 +22,16 @@ class CodeViewController: UIViewController {
     var interactor: CodeBusinessLogic?
     var router: (NSObjectProtocol & CodeRoutingLogic & CodeDataPassing)?
     
+    private lazy var codeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Code"
+        label.textColor = UIColor(hex: "848CA0")
+        label.font = UIFont(name: "Avenir Next Regular", size: 20)
+        return label
+    }()
+    
     private lazy var codeTextView: UITextView = {
-        var textView = UITextView()
+        let textView = UITextView()
         textView.backgroundColor = textView.backgroundColor?.withAlphaComponent(0)
         textView.textColor = .white
         textView.font = UIFont(name: "Menlo Regular", size: 14)
@@ -46,7 +54,7 @@ class CodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hex: "3D424E")
-        view.addSubview(codeTextView)
+        setupSubview(codeLabel, codeTextView)
         setupConstraints()
     }
     
@@ -65,14 +73,27 @@ class CodeViewController: UIViewController {
         }
     }
     
+    private func setupSubview(_ subviews: UIView...) {
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
+    }
+    
     private func setupConstraints() {
+        codeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            codeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+            codeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
         codeTextView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            codeTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            codeTextView.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 20),
             codeTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             codeTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            codeTextView.heightAnchor.constraint(equalToConstant: 100)
+            codeTextView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -20)
         ])
     }
     
@@ -92,7 +113,7 @@ class CodeViewController: UIViewController {
 }
 
 extension CodeViewController: CodeDisplayLogic {
-    func displayCode(viewModel: Code.PresentCode.ViewModel) {
+    func displayCode(viewModel: CodeViewModel) {
         
     }
 }
