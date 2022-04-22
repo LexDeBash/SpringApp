@@ -117,12 +117,12 @@ class OptionsViewController: UIViewController {
 // MARK: - OptionsDisplayLogic
 extension OptionsViewController: OptionsDisplayLogic {
     func displayOptions(viewModel: OptionsViewModel) {
-        dampingSlider.setValue(Float(viewModel.damping), animated: false)
-        velocitySlider.setValue(Float(viewModel.velocity), animated: false)
-        scaleSlider.setValue(Float(viewModel.scale), animated: false)
-        xSlider.setValue(Float(viewModel.x), animated: false)
-        ySlider.setValue(Float(viewModel.y), animated: false)
-        rotateSlider.setValue(Float(viewModel.rotate), animated: false)
+        dampingSlider.setValue(Float(viewModel.damping), animated: true)
+        velocitySlider.setValue(Float(viewModel.velocity), animated: true)
+        scaleSlider.setValue(Float(viewModel.scale), animated: true)
+        xSlider.setValue(Float(viewModel.x), animated: true)
+        ySlider.setValue(Float(viewModel.y), animated: true)
+        rotateSlider.setValue(Float(viewModel.rotate), animated: true)
         
         dampingLabel.text = viewModel.dampingText
         velocityLabel.text = viewModel.velocityText
