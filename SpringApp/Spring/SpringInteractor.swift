@@ -13,20 +13,21 @@
 import SpringAnimation
 
 protocol SpringBusinessLogic {
-    func viewDidLoad()
+    func viewDidLoad(request: SpringRequest)
     func didTapView()
     func didSelectAnimationRow(request: SpringRequest)
     func didSelectCurveRow(request: SpringRequest)
     func forceSliderDidChanged(request: SpringRequest)
     func durationSliderDidChanged(request: SpringRequest)
     func delaySliderDidChanged(request: SpringRequest)
-    func transformSpringViewButtonDidTapped(request: TransformRequest)
+    func transformSpringViewButtonDidTapped()
 }
 
 protocol SpringDataStore {
     var animation: Animation? { get set }
     var animationList: [String] { get }
     var curveList: [String] { get }
+    var viewHeight: Double { get }
     var isCircle: Bool { get }
 }
 
@@ -36,13 +37,15 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     var animation: Animation?
     var animationList = AnimationPreset.allCases.map { $0.rawValue }
     var curveList = AnimationCurve.allCases.map { $0.rawValue }
+    var viewHeight: Double = 0
     var isCircle = false
     
     private var response: SpringResponse {
         SpringResponse(animation: animation ?? Animation())
     }
     
-    func viewDidLoad() {
+    func viewDidLoad(request: SpringRequest) {
+        viewHeight = request.viewSize
         animation = Animation()
         var response = SpringResponse(animation: animation ?? Animation())
         response.animationList = animationList
@@ -79,9 +82,9 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
         presenter?.presentAnimation(response: response)
     }
     
-    func transformSpringViewButtonDidTapped(request: TransformRequest) {
+    func transformSpringViewButtonDidTapped() {
         isCircle.toggle()
-        let halfSize = request.viewSize / 2
+        let halfSize = viewHeight / 2
         let cornerRadius = isCircle ? halfSize : 10
         
         let response = TransformResponse(

@@ -51,7 +51,12 @@ class SpringViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
-        interactor?.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        request.viewSize = springView.frame.height
+        interactor?.viewDidLoad(request: request)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,8 +96,7 @@ class SpringViewController: UIViewController {
     }
     
     @IBAction func transformSpringView() {
-        let request = TransformRequest(viewSize: springView.frame.height)
-        interactor?.transformSpringViewButtonDidTapped(request: request)
+        interactor?.transformSpringViewButtonDidTapped()
     }
     
     @objc private func tapAction() {
