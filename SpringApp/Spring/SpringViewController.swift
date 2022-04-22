@@ -10,6 +10,7 @@ import SpringAnimation
 
 protocol SpringDisplayLogic: AnyObject {
     func displayAnimation(viewModel: SpringViewModel)
+    func displayTransformation(viewModel: TransformViewModel)
 }
 
 class SpringViewController: UIViewController {
@@ -81,6 +82,11 @@ class SpringViewController: UIViewController {
         }
     }
     
+    @IBAction func transformSpringView() {
+        let request = TransformRequest(viewSize: springView.frame.height)
+        interactor?.transformSpringViewButtonDidTapped(request: request)
+    }
+    
     @objc private func tapAction() {
         interactor?.didTapView(request: request)
     }
@@ -124,6 +130,11 @@ extension SpringViewController: SpringDisplayLogic {
         springView.y = viewModel.y
         springView.rotate = viewModel.rotate
         springView.animate()
+    }
+    
+    func displayTransformation(viewModel: TransformViewModel) {
+        springView.layer.cornerRadius = viewModel.cornerRadius
+        springView.layer.add(viewModel.animation, forKey: viewModel.key)
     }
 }
 

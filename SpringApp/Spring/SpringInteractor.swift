@@ -19,12 +19,14 @@ protocol SpringBusinessLogic {
     func forceSliderDidChanged(request: SpringRequest)
     func durationSliderDidChanged(request: SpringRequest)
     func delaySliderDidChanged(request: SpringRequest)
+    func transformSpringViewButtonDidTapped(request: TransformRequest)
 }
 
 protocol SpringDataStore {
     var animation: Animation? { get set }
     var animations: [AnimationPreset] { get }
     var animationCurves: [AnimationCurve] { get }
+    var isCircle: Bool { get }
 }
 
 class SpringInteractor: SpringBusinessLogic, SpringDataStore {
@@ -33,6 +35,7 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     var animation: Animation?
     var animations = AnimationPreset.allCases
     var animationCurves = AnimationCurve.allCases
+    var isCircle = false
     
     private var response: SpringResponse {
         SpringResponse(animation: animation ?? Animation())
@@ -68,5 +71,19 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     func delaySliderDidChanged(request: SpringRequest) {
         animation?.delay = Double(request.delaySliderValue)
         presenter?.presentAnimation(response: response)
+    }
+    
+    func transformSpringViewButtonDidTapped(request: TransformRequest) {
+        isCircle.toggle()
+        let halfSize = request.viewSize / 2
+        let cornerRadius = isCircle ? halfSize : 10
+        
+        let response = TransformResponse(
+            keyPath: "cornerRadius",
+            fromValue: isCircle ? 10 : halfSize,
+            toValue: cornerRadius,
+            duration: 0.2
+        )
+        presenter?.presentTransformation(response: response)
     }
 }

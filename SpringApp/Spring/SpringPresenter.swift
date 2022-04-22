@@ -10,8 +10,11 @@
 //  see http://clean-swift.com
 //
 
+import QuartzCore
+
 protocol SpringPresentationLogic {
     func presentAnimation(response: SpringResponse)
+    func presentTransformation(response: TransformResponse)
 }
 
 class SpringPresenter: SpringPresentationLogic {
@@ -36,5 +39,19 @@ class SpringPresenter: SpringPresentationLogic {
             delayText: String(format: "Delay: %.1f", response.animation.delay)
         )
         viewController?.displayAnimation(viewModel: viewModel)
+    }
+    
+    func presentTransformation(response: TransformResponse) {
+        let animation = CABasicAnimation()
+        animation.keyPath = response.keyPath
+        animation.fromValue = response.fromValue
+        animation.toValue = response.toValue
+        animation.duration = response.duration
+        let viewModel = TransformViewModel(
+            cornerRadius: response.toValue,
+            animation: animation,
+            key: "radius"
+        )
+        viewController?.displayTransformation(viewModel: viewModel)
     }
 }

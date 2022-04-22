@@ -10,9 +10,15 @@
 //  see http://clean-swift.com
 //
 
+import QuartzCore
+
 typealias SpringRequest = Spring.Animate.Request
 typealias SpringResponse = Spring.Animate.Response
 typealias SpringViewModel = Spring.Animate.ViewModel
+
+typealias TransformRequest = Spring.TransformSpringView.Request
+typealias TransformResponse = Spring.TransformSpringView.Response
+typealias TransformViewModel = Spring.TransformSpringView.ViewModel
 
 enum Spring {
  
@@ -45,6 +51,25 @@ enum Spring {
             let forceText: String
             let durationText: String
             let delayText: String
+        }
+    }
+    
+    enum TransformSpringView {
+        struct Request {
+            var viewSize: Double
+        }
+        
+        struct Response {
+            let keyPath: String
+            let fromValue: Double
+            let toValue: Double
+            let duration: Double
+        }
+        
+        struct ViewModel {
+            let cornerRadius: Double
+            let animation: CABasicAnimation
+            let key: String
         }
     }
 }
