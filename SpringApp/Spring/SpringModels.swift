@@ -22,7 +22,7 @@ typealias TransformViewModel = Spring.TransformSpringView.ViewModel
 
 enum Spring {
  
-    // MARK: Use cases
+    // MARK: Animate Use case
     enum Animate {
         struct Request {
             var rowIndex = 0
@@ -77,6 +77,7 @@ enum Spring {
         
     }
     
+    // MARK: - Transform use case
     enum TransformSpringView {
         struct Request {
             var viewSize: Double

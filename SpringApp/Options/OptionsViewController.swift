@@ -35,10 +35,10 @@ class OptionsViewController: UIViewController {
     @IBOutlet var ySlider: UISlider!
     @IBOutlet var rotateSlider: UISlider!
         
-    var interactor: OptionsBusinessLogic?
     var router: (NSObjectProtocol & OptionsRoutingLogic & OptionsDataPassing)?
     var delegate: SpringDisplayLogic!
     
+    private var interactor: OptionsBusinessLogic?
     private var request = OptionsRequest()
     
     // MARK: Object lifecycle
@@ -56,7 +56,7 @@ class OptionsViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
-        interactor?.setOptions(request: request)
+        interactor?.setOptions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,7 +89,7 @@ class OptionsViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed() {
-        interactor?.resetButtonPressed(request: request)
+        interactor?.resetButtonPressed()
     }
     
     @objc private func tapAction() {
@@ -114,6 +114,7 @@ class OptionsViewController: UIViewController {
     }
 }
 
+// MARK: - OptionsDisplayLogic
 extension OptionsViewController: OptionsDisplayLogic {
     func displayOptions(viewModel: OptionsViewModel) {
         dampingSlider.setValue(Float(viewModel.damping), animated: false)

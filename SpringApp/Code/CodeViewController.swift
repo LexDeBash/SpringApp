@@ -19,11 +19,11 @@ protocol CodeDisplayLogic: AnyObject {
 
 class CodeViewController: UIViewController {
         
-    var interactor: CodeBusinessLogic?
+    private var interactor: CodeBusinessLogic?
     var router: (NSObjectProtocol & CodeRoutingLogic & CodeDataPassing)?
     
     private lazy var modalView: SpringView = {
-       let view = SpringView()
+        let view = SpringView()
         view.isHidden = true
         return view
     }()
@@ -128,6 +128,7 @@ class CodeViewController: UIViewController {
     }
 }
 
+// MARK: - CodeDisplayLogic
 extension CodeViewController: CodeDisplayLogic {
     func displayCode(viewModel: CodeViewModel) {
         codeTextView.text = viewModel.codeText
