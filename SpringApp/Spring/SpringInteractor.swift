@@ -13,7 +13,8 @@
 import SpringAnimation
 
 protocol SpringBusinessLogic {
-    func didTapView(request: SpringRequest)
+    func viewDidLoad()
+    func didTapView()
     func didSelectAnimationRow(request: SpringRequest)
     func didSelectCurveRow(request: SpringRequest)
     func forceSliderDidChanged(request: SpringRequest)
@@ -24,8 +25,8 @@ protocol SpringBusinessLogic {
 
 protocol SpringDataStore {
     var animation: Animation? { get set }
-    var animations: [AnimationPreset] { get }
-    var animationCurves: [AnimationCurve] { get }
+    var animationList: [String] { get }
+    var curveList: [String] { get }
     var isCircle: Bool { get }
 }
 
@@ -33,28 +34,33 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     
     var presenter: SpringPresentationLogic?
     var animation: Animation?
-    var animations = AnimationPreset.allCases
-    var animationCurves = AnimationCurve.allCases
+    var animationList = AnimationPreset.allCases.map { $0.rawValue }
+    var curveList = AnimationCurve.allCases.map { $0.rawValue }
     var isCircle = false
     
     private var response: SpringResponse {
         SpringResponse(animation: animation ?? Animation())
     }
     
-    func didTapView(request: SpringRequest) {
-        if animation == nil {
-            animation = Animation()
-        }
+    func viewDidLoad() {
+        animation = Animation()
+        var response = SpringResponse(animation: animation ?? Animation())
+        response.animationList = animationList
+        response.curveList = curveList
+        presenter?.setAnimation(response: response)
+    }
+    
+    func didTapView() {
         presenter?.presentAnimation(response: response)
     }
     
     func didSelectAnimationRow(request: SpringRequest) {
-        animation?.name = animations[request.rowIndex].rawValue
+        animation?.name = animationList[request.rowIndex]
         presenter?.presentAnimation(response: response)
     }
     
     func didSelectCurveRow(request: SpringRequest) {
-        animation?.curve = animationCurves[request.rowIndex].rawValue
+        animation?.curve = curveList[request.rowIndex]
         presenter?.presentAnimation(response: response)
     }
     

@@ -33,6 +33,8 @@ enum Spring {
         
         struct Response {
             let animation: Animation
+            var animationList: [String] = []
+            var curveList: [String] = []
         }
         
         struct ViewModel {
@@ -51,7 +53,28 @@ enum Spring {
             let forceText: String
             let durationText: String
             let delayText: String
+            
+            var animationList: [String] = []
+            var curveList: [String] = []
+            
+            init(animation: Animation) {
+                self.animation = animation.name
+                curve = animation.curve
+                force = animation.force
+                duration = animation.duration
+                delay = animation.delay
+                damping = animation.damping
+                velocity = animation.velocity
+                scale = animation.scale
+                x = animation.x
+                y = animation.y
+                rotate = animation.rotate
+                forceText = String(format: "Force: %.1f", animation.force)
+                durationText = String(format: "Duration: %.1f", animation.duration)
+                delayText = String(format: "Delay: %.1f", animation.delay)
+            }
         }
+        
     }
     
     enum TransformSpringView {

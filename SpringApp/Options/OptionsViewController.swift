@@ -130,8 +130,8 @@ extension OptionsViewController: OptionsDisplayLogic {
         yLabel.text = viewModel.yText
         rotateLabel.text = viewModel.rotateText
         
-        let springViewModel = SpringViewModel(
-            animation: viewModel.animation,
+        let animation = Animation(
+            name: viewModel.animation,
             curve: viewModel.curve,
             force: viewModel.force,
             duration: viewModel.duration,
@@ -141,11 +141,10 @@ extension OptionsViewController: OptionsDisplayLogic {
             scale: viewModel.scale,
             x: viewModel.x,
             y: viewModel.y,
-            rotate: viewModel.rotate,
-            forceText: String(format: "Force: %.1f", viewModel.force),
-            durationText: String(format: "Duration: %.1f", viewModel.duration),
-            delayText: String(format: "Delay: %.1f", viewModel.delay)
+            rotate: viewModel.rotate
         )
+        
+        let springViewModel = SpringViewModel(animation: animation)
         delegate.displayAnimation(viewModel: springViewModel)
     }
 }

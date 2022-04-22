@@ -9,6 +9,7 @@ import UIKit
 import SpringAnimation
 
 protocol SpringDisplayLogic: AnyObject {
+    func setAnimation(viewModel: SpringViewModel)
     func displayAnimation(viewModel: SpringViewModel)
     func displayTransformation(viewModel: TransformViewModel)
 }
@@ -26,13 +27,13 @@ class SpringViewController: UIViewController {
     
     @IBOutlet var springView: SpringView!
     
-    var interactor: SpringBusinessLogic?
-    var router: (NSObjectProtocol & SpringRoutingLogic & SpringDataPassing)?
+    private var interactor: SpringBusinessLogic?
+    private var router: (NSObjectProtocol & SpringRoutingLogic & SpringDataPassing)?
     
     private var request = SpringRequest()
     
-    private let animations = AnimationPreset.allCases.map { $0.rawValue }
-    private let curves = AnimationCurve.allCases.map { $0.rawValue }
+    private var animationList: [String] = []
+    private var curveList: [String] = []
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -50,7 +51,13 @@ class SpringViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
-        interactor?.didTapView(request: request)
+        interactor?.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        springView.delay = 1
+        springView.animate()
     }
     
     // MARK: Routing
@@ -63,6 +70,7 @@ class SpringViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func codeButtonPressed() {
         router?.routeToCode()
     }
@@ -88,7 +96,7 @@ class SpringViewController: UIViewController {
     }
     
     @objc private func tapAction() {
-        interactor?.didTapView(request: request)
+        interactor?.didTapView()
     }
     
     // MARK: Setup
@@ -106,14 +114,27 @@ class SpringViewController: UIViewController {
     }
 }
 
+// MARK: - SpringDisplayLogic
 extension SpringViewController: SpringDisplayLogic {
+    func setAnimation(viewModel: SpringViewModel) {
+        forceLabel.text = viewModel.forceText
+        durationLabel.text = viewModel.durationText
+        delayLabel.text = viewModel.delayText
+        
+        animationList = viewModel.animationList
+        curveList = viewModel.curveList
+        
+        springView.animation = viewModel.animation
+        springView.delay = viewModel.delay
+    }
+    
     func displayAnimation(viewModel: SpringViewModel) {
         forceLabel.text = viewModel.forceText
         durationLabel.text = viewModel.durationText
         delayLabel.text = viewModel.delayText
         
-        let animationIndex = animations.firstIndex(of: viewModel.animation) ?? 0
-        let curveIndex = curves.firstIndex(of: viewModel.curve) ?? 0
+        let animationIndex = animationList.firstIndex(of: viewModel.animation) ?? 0
+        let curveIndex = curveList.firstIndex(of: viewModel.curve) ?? 0
         pickerView.selectRow(animationIndex, inComponent: 0, animated: false)
         pickerView.selectRow(curveIndex, inComponent: 1, animated: false)
         
@@ -145,11 +166,11 @@ extension SpringViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        component == 0 ? animations.count : curves.count
+        component == 0 ? animationList.count : curveList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        component == 0 ? animations[row] : curves[row]
+        component == 0 ? animationList[row] : curveList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
