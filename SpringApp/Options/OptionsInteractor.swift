@@ -29,7 +29,6 @@ protocol OptionsDataStore {
 class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     
     var presenter: OptionsPresentationLogic?
-    var worker: OptionsWorker?
     var animation: Animation?
     var delegate: SpringDataStore?
     

@@ -30,7 +30,6 @@ protocol SpringDataStore {
 class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     
     var presenter: SpringPresentationLogic?
-    var worker: SpringWorker?
     var animation: Animation?
     var animations = AnimationPreset.allCases
     var animationCurves = AnimationCurve.allCases

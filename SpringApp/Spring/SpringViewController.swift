@@ -20,6 +20,9 @@ class SpringViewController: UIViewController {
     @IBOutlet var delaySlider: UISlider!
     @IBOutlet var durationSlider: UISlider!
     @IBOutlet var forceSlider: UISlider!
+    
+    @IBOutlet var pickerView: UIPickerView!
+    
     @IBOutlet var springView: SpringView!
     
     var interactor: SpringBusinessLogic?
@@ -27,8 +30,8 @@ class SpringViewController: UIViewController {
     
     private var request = SpringRequest()
     
-    private let animations = AnimationPreset.allCases
-    private let animationCurves = AnimationCurve.allCases
+    private let animations = AnimationPreset.allCases.map { $0.rawValue }
+    private let curves = AnimationCurve.allCases.map { $0.rawValue }
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -103,6 +106,11 @@ extension SpringViewController: SpringDisplayLogic {
         durationLabel.text = viewModel.durationText
         delayLabel.text = viewModel.delayText
         
+        let animationIndex = animations.firstIndex(of: viewModel.animation) ?? 0
+        let curveIndex = curves.firstIndex(of: viewModel.curve) ?? 0
+        pickerView.selectRow(animationIndex, inComponent: 0, animated: false)
+        pickerView.selectRow(curveIndex, inComponent: 1, animated: false)
+        
         springView.animation = viewModel.animation
         springView.curve = viewModel.curve
         springView.force = viewModel.force
@@ -126,11 +134,11 @@ extension SpringViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        component == 0 ? animations.count : animationCurves.count
+        component == 0 ? animations.count : curves.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        component == 0 ? animations[row].rawValue : animationCurves[row].rawValue
+        component == 0 ? animations[row] : curves[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

@@ -21,12 +21,10 @@
 		A86038E1280AD7BB0058D49E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038E0280AD7BB0058D49E /* Animation.swift */; };
 		A86038E9280ADEAA0058D49E /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = A86038E8280ADEAA0058D49E /* SpringAnimation */; };
 		A86038EF280AE2410058D49E /* SpringPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EA280AE2410058D49E /* SpringPresenter.swift */; };
-		A86038F0280AE2410058D49E /* SpringWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EB280AE2410058D49E /* SpringWorker.swift */; };
 		A86038F1280AE2410058D49E /* SpringRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EC280AE2410058D49E /* SpringRouter.swift */; };
 		A86038F2280AE2410058D49E /* SpringModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038ED280AE2410058D49E /* SpringModels.swift */; };
 		A86038F3280AE2410058D49E /* SpringInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86038EE280AE2410058D49E /* SpringInteractor.swift */; };
 		A8603909280C36070058D49E /* OptionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8603903280C36070058D49E /* OptionsPresenter.swift */; };
-		A860390A280C36070058D49E /* OptionsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8603904280C36070058D49E /* OptionsWorker.swift */; };
 		A860390B280C36070058D49E /* OptionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8603905280C36070058D49E /* OptionsRouter.swift */; };
 		A860390C280C36070058D49E /* OptionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8603906280C36070058D49E /* OptionsModels.swift */; };
 		A860390D280C36070058D49E /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8603907280C36070058D49E /* OptionsViewController.swift */; };
@@ -50,12 +48,10 @@
 		A86038E0280AD7BB0058D49E /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A86038E7280ADEA30058D49E /* SpringAnimation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpringAnimation; sourceTree = "<group>"; };
 		A86038EA280AE2410058D49E /* SpringPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringPresenter.swift; sourceTree = "<group>"; };
-		A86038EB280AE2410058D49E /* SpringWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringWorker.swift; sourceTree = "<group>"; };
 		A86038EC280AE2410058D49E /* SpringRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringRouter.swift; sourceTree = "<group>"; };
 		A86038ED280AE2410058D49E /* SpringModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringModels.swift; sourceTree = "<group>"; };
 		A86038EE280AE2410058D49E /* SpringInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringInteractor.swift; sourceTree = "<group>"; };
 		A8603903280C36070058D49E /* OptionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPresenter.swift; sourceTree = "<group>"; };
-		A8603904280C36070058D49E /* OptionsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsWorker.swift; sourceTree = "<group>"; };
 		A8603905280C36070058D49E /* OptionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsRouter.swift; sourceTree = "<group>"; };
 		A8603906280C36070058D49E /* OptionsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModels.swift; sourceTree = "<group>"; };
 		A8603907280C36070058D49E /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +137,6 @@
 				A86038C6280ACEB40058D49E /* SpringViewController.swift */,
 				A86038EE280AE2410058D49E /* SpringInteractor.swift */,
 				A86038EA280AE2410058D49E /* SpringPresenter.swift */,
-				A86038EB280AE2410058D49E /* SpringWorker.swift */,
 				A86038EC280AE2410058D49E /* SpringRouter.swift */,
 				A86038ED280AE2410058D49E /* SpringModels.swift */,
 			);
@@ -179,7 +174,6 @@
 				A8603907280C36070058D49E /* OptionsViewController.swift */,
 				A8603908280C36070058D49E /* OptionsInteractor.swift */,
 				A8603903280C36070058D49E /* OptionsPresenter.swift */,
-				A8603904280C36070058D49E /* OptionsWorker.swift */,
 				A8603905280C36070058D49E /* OptionsRouter.swift */,
 				A8603906280C36070058D49E /* OptionsModels.swift */,
 			);
@@ -265,7 +259,6 @@
 				A85E83E2280DA79E00FB6B82 /* CodePresenter.swift in Sources */,
 				A85E83E4280DA79E00FB6B82 /* CodeRouter.swift in Sources */,
 				A86038F1280AE2410058D49E /* SpringRouter.swift in Sources */,
-				A860390A280C36070058D49E /* OptionsWorker.swift in Sources */,
 				A860390D280C36070058D49E /* OptionsViewController.swift in Sources */,
 				A860390B280C36070058D49E /* OptionsRouter.swift in Sources */,
 				A85E83E7280DA79E00FB6B82 /* CodeInteractor.swift in Sources */,
@@ -279,7 +272,6 @@
 				A86038F2280AE2410058D49E /* SpringModels.swift in Sources */,
 				A8603909280C36070058D49E /* OptionsPresenter.swift in Sources */,
 				A86038C5280ACEB40058D49E /* SceneDelegate.swift in Sources */,
-				A86038F0280AE2410058D49E /* SpringWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

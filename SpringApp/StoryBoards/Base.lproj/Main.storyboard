@@ -184,6 +184,7 @@
                         <outlet property="durationSlider" destination="XYn-vA-cnQ" id="CdI-VS-cSa"/>
                         <outlet property="forceLabel" destination="Cgb-SW-aoM" id="kMb-Oq-vAu"/>
                         <outlet property="forceSlider" destination="6cl-on-gml" id="c5P-2h-QAz"/>
+                        <outlet property="pickerView" destination="LIa-2m-ZAi" id="Pi2-87-wZC"/>
                         <outlet property="springView" destination="3aD-n6-FW6" id="gpq-rj-AwY"/>
                     </connections>
                 </viewController>

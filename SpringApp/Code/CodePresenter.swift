@@ -32,7 +32,7 @@ class CodePresenter: CodePresentationLogic {
         if response.animation.duration != 0.7 {
             codeText += String(format: "   view.duration = %.1f\n", response.animation.duration)
         }
-        if response.animation.delay != 1 {
+        if response.animation.delay != 0 {
             codeText += String(format: "   view.delay = %.1f\n", response.animation.delay)
         }
         if response.animation.damping != 0.7 {
