@@ -58,7 +58,7 @@ enum Spring {
             var curveList: [String] = []
             
             init(animation: Animation) {
-                self.animation = animation.name
+                self.animation = animation.title
                 curve = animation.curve
                 force = animation.force
                 duration = animation.duration

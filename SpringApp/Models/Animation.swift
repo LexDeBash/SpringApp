@@ -8,7 +8,7 @@
 import Foundation
 
 struct Animation {
-    var name = "pop"
+    var title = "pop"
     var curve = "easeIn"
     var force = 1.0
     var duration = 0.7

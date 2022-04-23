@@ -62,7 +62,7 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     }
     
     func didSelectAnimationRow(request: SpringRequest) {
-        animation?.name = animationList[request.rowIndex]
+        animation?.title = animationList[request.rowIndex]
         presenter?.presentAnimation(response: response)
     }
     

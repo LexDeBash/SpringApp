@@ -21,8 +21,8 @@ class CodePresenter: CodePresentationLogic {
     func presentCode(response: CodeResponse) {
         var codeText = ""
         
-        if !response.animation.name.isEmpty {
-            codeText += "   view.animation = \"\(response.animation.name)\"\n"
+        if !response.animation.title.isEmpty {
+            codeText += "   view.animation = \"\(response.animation.title)\"\n"
         }
         if !response.animation.curve.isEmpty {
             codeText += "   view.curve = \"\(response.animation.curve)\"\n"

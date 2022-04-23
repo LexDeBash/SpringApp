@@ -20,7 +20,7 @@ class OptionsPresenter: OptionsPresentationLogic {
     
     func presentOptions(response: OptionsResponse) {
         let viewModel = OptionsViewModel(
-            animation: response.animation.name,
+            animation: response.animation.title,
             curve: response.animation.curve,
             force: response.animation.force,
             duration: response.animation.duration,
