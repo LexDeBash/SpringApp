@@ -16,6 +16,7 @@ typealias SpringRequest = Spring.Animate.Request
 typealias SpringResponse = Spring.Animate.Response
 typealias SpringViewModel = Spring.Animate.ViewModel
 
+typealias TransformRequest = Spring.TransformSpringView.Request
 typealias TransformResponse = Spring.TransformSpringView.Response
 typealias TransformViewModel = Spring.TransformSpringView.ViewModel
 
@@ -28,7 +29,6 @@ enum Spring {
             var forceSliderValue: Float = 1
             var durationSliderValue: Float = 0.7
             var delaySliderValue: Float = 0
-            var viewSize: Double = 0
         }
         
         struct Response {
@@ -79,6 +79,10 @@ enum Spring {
     
     // MARK: - Transform use case
     enum TransformSpringView {
+        
+        struct Request {
+            var viewSize: Double = 0
+        }
         
         struct Response {
             let keyPath: String

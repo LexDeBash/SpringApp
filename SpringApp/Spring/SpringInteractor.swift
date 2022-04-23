@@ -13,8 +13,9 @@
 import SpringAnimation
 
 protocol SpringBusinessLogic {
-    func viewDidLoad(request: SpringRequest)
+    func viewDidLoad()
     func didTapView()
+    func setViewSize(request: TransformRequest)
     func didSelectAnimationRow(request: SpringRequest)
     func didSelectCurveRow(request: SpringRequest)
     func forceSliderDidChanged(request: SpringRequest)
@@ -44,13 +45,16 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
         SpringResponse(animation: animation ?? Animation())
     }
     
-    func viewDidLoad(request: SpringRequest) {
-        viewHeight = request.viewSize
+    func viewDidLoad() {
         animation = Animation()
         var response = SpringResponse(animation: animation ?? Animation())
         response.animationList = animationList
         response.curveList = curveList
         presenter?.setAnimation(response: response)
+    }
+    
+    func setViewSize(request: TransformRequest) {
+        viewHeight = request.viewSize
     }
     
     func didTapView() {
