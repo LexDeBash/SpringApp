@@ -13,7 +13,7 @@
 import SpringAnimation
 
 protocol SpringBusinessLogic {
-    func viewDidLoad()
+    func setInitialValues(request: SpringRequest)
     func didTapView()
     func setViewSize(request: TransformRequest)
     func didSelectAnimationRow(request: SpringRequest)
@@ -25,7 +25,7 @@ protocol SpringBusinessLogic {
 }
 
 protocol SpringDataStore {
-    var animation: Animation? { get set }
+    var animation: Animation { get set }
     var animationList: [String] { get }
     var curveList: [String] { get }
     var viewHeight: Double { get }
@@ -35,22 +35,39 @@ protocol SpringDataStore {
 class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     
     var presenter: SpringPresentationLogic?
-    var animation: Animation?
+    var animation = Animation.getDefaultValues()
     var animationList = AnimationPreset.allCases.map { $0.rawValue }
     var curveList = AnimationCurve.allCases.map { $0.rawValue }
     var viewHeight: Double = 0
     var isCircle = false
     
     private var response: SpringResponse {
-        SpringResponse(animation: animation ?? Animation())
+        SpringResponse(animation: animation)
     }
     
-    func viewDidLoad() {
-        animation = Animation()
-        var response = SpringResponse(animation: animation ?? Animation())
+    func setInitialValues(request: SpringRequest) {
+        animation = Animation(
+            autostart: request.autostart,
+            autohide: request.autohide,
+            title: request.title,
+            curve: request.curve,
+            force: request.force,
+            delay: request.delay,
+            duration: request.duration,
+            damping: request.damping,
+            velocity: request.velocity,
+            repeatCount: request.repeatCount,
+            x: request.x,
+            y: request.y,
+            scaleX: request.scaleX,
+            scaleY: request.scaleY,
+            scale: 1,
+            rotate: request.rotate
+        )
+        var response = SpringResponse(animation: animation)
         response.animationList = animationList
         response.curveList = curveList
-        presenter?.setAnimation(response: response)
+        presenter?.presentInitialValues(response: response)
     }
     
     func setViewSize(request: TransformRequest) {
@@ -62,27 +79,27 @@ class SpringInteractor: SpringBusinessLogic, SpringDataStore {
     }
     
     func didSelectAnimationRow(request: SpringRequest) {
-        animation?.title = animationList[request.rowIndex]
+        animation.title = animationList[request.rowIndex]
         presenter?.presentAnimation(response: response)
     }
     
     func didSelectCurveRow(request: SpringRequest) {
-        animation?.curve = curveList[request.rowIndex]
+        animation.curve = curveList[request.rowIndex]
         presenter?.presentAnimation(response: response)
     }
     
     func forceSliderDidChanged(request: SpringRequest) {
-        animation?.force = Double(request.forceSliderValue)
+        animation.force = Double(request.force)
         presenter?.presentAnimation(response: response)
     }
     
     func durationSliderDidChanged(request: SpringRequest) {
-        animation?.duration = Double(request.durationSliderValue)
+        animation.duration = Double(request.duration)
         presenter?.presentAnimation(response: response)
     }
     
     func delaySliderDidChanged(request: SpringRequest) {
-        animation?.delay = Double(request.delaySliderValue)
+        animation.delay = Double(request.delay)
         presenter?.presentAnimation(response: response)
     }
     

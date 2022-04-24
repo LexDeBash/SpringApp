@@ -33,7 +33,7 @@ class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     var delegate: SpringDataStore?
     
     private var response: OptionsResponse {
-        OptionsResponse(animation: animation ?? Animation())
+        OptionsResponse(animation: animation ?? Animation.getDefaultValues())
     }
     
     func setOptions() {
@@ -72,12 +72,12 @@ class OptionsInteractor: OptionsBusinessLogic, OptionsDataStore {
     }
     
     func resetButtonPressed() {
-        self.animation = Animation()
+        animation = Animation.getDefaultValues()
         passDataToPresenter()
     }
     
     private func passDataToPresenter() {
-        delegate?.animation = animation
+        delegate?.animation = animation ?? Animation.getDefaultValues()
         presenter?.presentOptions(response: response)
     }
 }

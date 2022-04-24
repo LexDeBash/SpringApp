@@ -26,9 +26,24 @@ enum Spring {
     enum Animate {
         struct Request {
             var rowIndex = 0
-            var forceSliderValue: Float = 1
-            var durationSliderValue: Float = 0.7
-            var delaySliderValue: Float = 0
+            let autostart: Bool
+            let autohide: Bool
+            
+            let title: String
+            let curve: String
+            
+            var force: Double
+            var delay: Double
+            var duration: Double
+            let damping: Double
+            let velocity: Double
+            let repeatCount: Float
+            let x: Double
+            let y: Double
+            let scaleX: Double
+            let scaleY: Double
+            let scale: Double
+            let rotate: Double
         }
         
         struct Response {
@@ -38,16 +53,23 @@ enum Spring {
         }
         
         struct ViewModel {
-            let animation: String
+            let autostart: Bool
+            let autohide: Bool
+            
+            let title: String
             let curve: String
+            
             let force: Double
-            let duration: Double
             let delay: Double
+            let duration: Double
             let damping: Double
             let velocity: Double
-            let scale: Double
+            let repeatCount: Float
             let x: Double
             let y: Double
+            let scaleX: Double
+            let scaleY: Double
+            let scale: Double
             let rotate: Double
             
             let forceText: String
@@ -58,17 +80,25 @@ enum Spring {
             var curveList: [String] = []
             
             init(animation: Animation) {
-                self.animation = animation.title
+                autostart = animation.autostart
+                autohide = animation.autohide
+                
+                title = animation.title
                 curve = animation.curve
+                
                 force = animation.force
-                duration = animation.duration
                 delay = animation.delay
+                duration = animation.duration
                 damping = animation.damping
                 velocity = animation.velocity
-                scale = animation.scale
+                repeatCount = animation.repeatCount
                 x = animation.x
                 y = animation.y
+                scaleX = animation.scaleX
+                scaleY = animation.scaleY
+                scale = animation.scale
                 rotate = animation.rotate
+                
                 forceText = String(format: "Force: %.1f", animation.force)
                 durationText = String(format: "Duration: %.1f", animation.duration)
                 delayText = String(format: "Delay: %.1f", animation.delay)

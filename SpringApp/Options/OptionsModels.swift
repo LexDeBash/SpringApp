@@ -36,16 +36,23 @@ enum Options {
         }
         
         struct ViewModel {
-            let animation: String
+            let autostart: Bool
+            let autohide: Bool
+            
+            let title: String
             let curve: String
+            
             let force: Double
-            let duration: Double
             let delay: Double
+            let duration: Double
             let damping: Double
             let velocity: Double
-            let scale: Double
+            let repeatCount: Float
             let x: Double
             let y: Double
+            let scaleX: Double
+            let scaleY: Double
+            let scale: Double
             let rotate: Double
             
             let forceText: String

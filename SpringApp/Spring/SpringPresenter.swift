@@ -13,7 +13,7 @@
 import QuartzCore
 
 protocol SpringPresentationLogic {
-    func setAnimation(response: SpringResponse)
+    func presentInitialValues(response: SpringResponse)
     func presentAnimation(response: SpringResponse)
     func presentTransformation(response: TransformResponse)
 }
@@ -22,11 +22,11 @@ class SpringPresenter: SpringPresentationLogic {
     
     weak var viewController: SpringDisplayLogic?
     
-    func setAnimation(response: SpringResponse) {
+    func presentInitialValues(response: SpringResponse) {
         var viewModel = SpringViewModel(animation: response.animation)
         viewModel.animationList = response.animationList
         viewModel.curveList = response.curveList
-        viewController?.setAnimation(viewModel: viewModel)
+        viewController?.displayInitialValues(viewModel: viewModel)
     }
     
     func presentAnimation(response: SpringResponse) {

@@ -132,16 +132,21 @@ extension OptionsViewController: OptionsDisplayLogic {
         rotateLabel.text = viewModel.rotateText
         
         let animation = Animation(
-            title: viewModel.animation,
+            autostart: viewModel.autostart,
+            autohide: viewModel.autohide,
+            title: viewModel.title,
             curve: viewModel.curve,
             force: viewModel.force,
-            duration: viewModel.duration,
             delay: viewModel.delay,
+            duration: viewModel.duration,
             damping: viewModel.damping,
             velocity: viewModel.velocity,
-            scale: viewModel.scale,
+            repeatCount: viewModel.repeatCount,
             x: viewModel.x,
             y: viewModel.y,
+            scaleX: viewModel.scaleX,
+            scaleY: viewModel.scaleY,
+            scale: viewModel.scale,
             rotate: viewModel.rotate
         )
         
